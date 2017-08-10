@@ -1,0 +1,71 @@
+<div class="main_right_cont_bg">
+<div class="container-fluid white_rbg_clr">
+    <h2 class="main_page_heading">List of Products</h2> </div>
+<div class="container-fluid custom_padd_main">
+     
+<a href="#/dashboard/product/add-product" class="btn btn-default adtolocation_btn crtnew_evnt_btn" style="float:left">Add New Product</a>
+
+
+<div id="login-alert" class="alert alert-danger col-sm-12" style="text-align:center; margin-top: 5px;" ng-if="errorMessage">{{errorMessage}}</div>
+
+<div id="login-alert" class="alert alert-success col-sm-12"style="text-align:center; margin-top: 5px;" ng-if="successMessage">{{successMessage}} </div>
+
+<div class="volunteer_status_name">  
+
+<div class="volunteer_searh_top">
+                <div class="input-group">
+                    <input type="text" class="form-control" ng-model="searchByName" placeholder="Search by name" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+  </div>
+
+  </div>        
+
+    </div>
+    
+    <div class="table_div_content">
+      <table class="table table-striped table_first_style list_of_donation_tbl">
+                <thead>
+                  <tr>
+                    <th>Product Name</th>
+                    <th>Category Name</th>
+                    <th>Product Code</th>
+                    <th>Product Price</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody >
+                  <tr ng-repeat="lists in allProducts" id="{{lists.id}}" class="ng-scope" >
+                    <!-- <td>{{allProducts.count}}</td> -->
+                    <td>{{lists.name}}</td>
+                    <td>{{lists.category_name}}</td>
+                    <td>{{lists.product_code}}</td>
+                    <td>{{lists.price}}</td>
+                    <td><a confirm="Are you sure you want to delete this products?" ng-click ="deleteProduct(lists.productsId,$index);" href="javascript:void(0);" class="eye_img_tbl">delete</a>
+                    <a href="#/dashboard/product/update-product/{{lists.productsId}}" class="eye_img_tbl">update</a>
+                    </td>
+                  </tr>
+                  <tr ng-if="allProducts.count==0">
+                            <td align="center" colspan="7" style ="color:red"><b>No record found.</b></td>
+                  </tr>          
+                </tbody>
+              </table>
+
+            <!--  <div class="row pagination-footer text-center">
+            <dir-pagination-controls direction-links="true" boundary-links="true" on-page-change="getAllProducts(newPageNumber, order_by, order=='asc' ? 'asc' : 'desc')" >
+            </dir-pagination-controls>
+        </div>-->
+    </div>
+
+    </div>
+
+  <script type="text/javascript">
+  $(function(){
+   $('#collapseOne').collapse('hide');
+
+  });
+  </script>

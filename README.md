@@ -1,2 +1,2 @@
-# CRUD_MONGO
-angular,api,mongodb
+# angular
+angular, api

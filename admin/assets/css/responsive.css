@@ -1,0 +1,1741 @@
+/*=================Responsive styles=================================*/
+
+
+/*@media (min-width: 767px) {
+    .close_open_tab
+}*/
+
+@media (max-width: 767px) {
+    ul.edit_prof_topul li:first-child {
+        border-left: 1px solid #d6d6d6;
+        border-top: 1px solid #d6d6d6;
+    }
+    ul.edit_prof_topul {
+        border-bottom: 0px;
+        border-top: 0px;
+    }
+    ul.edit_prof_topul li {
+        border: 1px solid #d6d6d6;
+        border-top: 0px;
+    }
+    .main_right_pannel {
+        height: auto;
+        /* min-height: 100vh; */
+        display: block;
+        width: auto;
+        margin-bottom: 61px;
+    }
+    footer.site_footer {
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+        background: #fff;
+    }
+    .main_mid_sec {
+        display: block;
+        width: auto;
+        background: #f3f3f3;
+    }
+    .remaining-tck-submit {
+        padding-left: 15px;
+        padding-top: 15px;
+    }
+    .slideInRight,
+    .slideInLeft,
+    .fadeInDown,
+    .fadeInRight,
+    .zoomIn {
+        -webkit-animation-name: none;
+        animation-name: none;
+    }
+    .row.profile_fld_row .slct_stu_all {
+        text-align: left;
+        line-height: normal;
+        margin-top: 10px;
+    }
+    .rev_obj {
+        overflow-y: auto;
+    }
+    .top_logo_left.animated.slideInRight,
+    img.zoomInDown {
+        -webkit-animation-name: inherit !important;
+        animation-name: inherit !important;
+    }
+    #mob_menu {
+        display: none;
+    }
+    .mm-opened.mm-opening #mob_menu {
+        display: block;
+    }
+    .mob_menu_icon {
+        display: inline-block;
+    }
+    #main_menu,
+    .main_left_pannel {
+        display: none;
+    }
+    .mm-page {
+        min-height: 100vh;
+        background: #fff;
+    }
+    .mm-panels>.mm-panel.mm-hasnavbar {
+        background: #235681;
+        border-right: 1px solid #28C5FF
+    }
+    .mm-menu .mm-listview>li a:not(.mm-next),
+    .mm-menu .mm-navbar a,
+    .mm-menu .mm-navbar>* {
+        color: #fff;
+    }
+    .mm-menu .mm-listview>li .mm-next:after,
+    .mm-listview .mm-next:before,
+    .mm-menu .mm-btn:after,
+    .mm-menu .mm-btn:before {
+        border-color: #fff;
+    }
+    .teachermobmenu .mm-menu .mm-listview>li a:not(.mm-next) span.left_i {
+        margin-right: 5px;
+    }
+    .teachermobmenu .mm-listview li.liDash {
+        background-color: #28c5ff;
+    }
+    .teachermobmenu .mm-listview li.liRed {
+        background-color: #e74d4d;
+    }
+    .teachermobmenu .mm-listview li.liRed.active {
+        background-color: #d33939;
+        border-top: 1px solid #d33939;
+        border-bottom: 1px solid #d33939;
+    }
+    .teachermobmenu .mm-listview li.liYellow.active {
+        background-color: #d6aa09;
+        border-top: 1px solid #d6aa09;
+        border-bottom: 1px solid #d6aa09;
+    }
+    .teachermobmenu .mm-listview li.liGreen.active {
+        background-color: #85ac39;
+        border-top: 1px solid #85ac39;
+        border-bottom: 1px solid #85ac39;
+    }
+    .teachermobmenu .mm-listview li.liYellow {
+        background-color: #f4bf00;
+    }
+    .teachermobmenu .mm-listview li.liGreen {
+        background-color: #96bf47;
+    }
+    .teachermobmenu .mm-listview li a span div.ng-binding {
+        display: inline-block;
+        float: left;
+    }
+    .teachermobmenu .mm-listview li a span em.ng-binding {
+        font-style: normal;
+        background: #d6aa09;
+        color: white;
+        padding: 1px 7px;
+        border-radius: 50%;
+        float: right;
+    }
+    .teachermobmenu .mm-listview .mm-next {
+        width: 35px;
+    }
+    .mm-next:after {
+        right: 15px;
+    }
+    .teachermobmenu .mm-listview .mm-next+a,
+    .mm-listview .mm-next+span {
+        margin-right: 30px;
+    }
+    .teachermobmenu .mm-listview li a span.left_i {
+        float: left;
+        margin-right: 5px;
+    }
+    .teachermobmenu .mm-listview li a span.ul_mid_txt {}
+    .login_main_bg .mm-page {
+        background: transparent;
+    }
+    .nav.main_left_ul>li>a {
+        padding: 0 0 0 15px;
+    }
+    .login_wht_bg {
+        margin-top: 35px;
+    }
+    a.top_logo_posi img {
+        right: 0;
+    }
+    .top_right_sec {
+        padding-right: 15px;
+    }
+    .country_flag {
+        margin: 0 6px;
+    }
+    ul.profile_top_ul>li:nth-child(2) {
+        min-width: 75px;
+    }
+    .dropdown.dropdown_top {
+        padding: 3px 0;
+    }
+    ul.top_right_nav {
+        margin: 10px 0;
+    }
+    .main_footer_bg {
+        padding: 20px 0;
+    }
+    .student_schedule_help_posi,
+    .teacher_feed_main_right {
+        padding: 15px 15px 0px 15px;
+    }
+    ul.school_hli_clrsign {
+        margin-top: 0;
+    }
+    ul.school_hli_clrsign li {
+        margin-bottom: 4px;
+    }
+    .row_position {
+        margin-top: 15px;
+    }
+    .fc button {
+        padding: 0 2px;
+    }
+    .teacher_feed_img,
+    .teacherfeed_mail_sec blockquote p {
+        margin-bottom: 10px;
+    }
+    .custom_review .rating {
+        float: none;
+    }
+    .teacherfeed_mail_sec p.course_datetime_txt {
+        margin: 0 7px 0 0;
+    }
+    form.frm_only_change_pass .row.profile_fld_row label.control-label {
+        text-align: left;
+        margin-left: 0px;
+    }
+    form.frm_only_change_pass .row.profile_fld_row .no_padding_cllm {
+        padding: 0 15px;
+    }
+    .edit_profile_main_row_posi {
+        margin: 6px 0 0 0;
+    }
+    .stars_review .rating {
+        float: left;
+        padding-left: 0px;
+        margin-left: 0px;
+    }
+    .change_pas_bg {
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+    p.help_ans_p {
+        word-break: break-all;
+    }
+    .ttl_vdo {
+        text-align: center;
+    }
+    .ttl_vdo video {
+        width: 195px;
+        height: 150px;
+    }
+    .edit_profile_sectn {
+        padding: 10px 15px;
+    }
+    .top_right_submenu {
+        font-size: 13px;
+    }
+    .top_right_submenu li a {
+        padding: 0px 0 0 10px;
+    }
+    .manage_obj .only_schol_hly_srch {
+        margin-bottom: 0px;
+    }
+    .scl_desc {
+        display: none;
+    }
+    a.top_logo_posi img {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        max-width: 225px;
+        height: auto;
+        max-height: 60px;
+        width: auto;
+    }
+    form.error_alrt_posi {
+        padding: 30px;
+    }
+    .assign_stdnt_crse_step1 form.frm_only_change_pass .row.profile_fld_row .no_padding_cllm {
+        text-align: left;
+    }
+    form.frm_only_change_pass.advrtcourse_sec label.control-label {
+        margin-left: 0px;
+    }
+    .btn.btn-default.assign_student_btn {
+        left: 0;
+        bottom: inherit;
+        top: 100%;
+        margin-top: 45px;
+        line-height: 30px;
+        width: 150px;
+        font-size: 14px;
+    }
+    h2.right_top_hed_txt {
+        margin: 20px 0 0;
+    }
+    ul.school_hli_clrsign {
+        margin-top: 10px;
+        text-align: left;
+        padding: 0px 0;
+        margin-bottom: 5px;
+    }
+    ul.school_hli_clrsign li {
+        display: block;
+    }
+    .upload_input_box {
+        margin-left: 0;
+    }
+    .assignobjctve {
+        width: 315px;
+    }
+    .assignobjctve .assign_dtls_flds .panel-body {
+        text-align: left;
+    }
+    .assign_clm_text_align .only_date_picker_assignstudent {
+        width: 46.5%;
+    }
+    form.error_alrt_posi {
+        padding: 0;
+    }
+    .edit_profile_main_row_posi label {
+        text-align: left;
+    }
+    ul.edit_prof_topul li {
+        width: 100%;
+        border-bottom: 1px solid #d6d6d6;
+    }
+    .change_pas_bg {
+        padding: 10px;
+    }
+    .change_pas_bg {
+        padding: 10px;
+    }
+    .change_pas_bg.import_student_body_cont {
+        padding: 10px;
+        width: 100%;
+        overflow: auto;
+    }
+    .fc-content .fc-title {
+        width: 95%;
+        display: inline-block;
+    }
+    div.fc-event-container .fc-content .fc-title {
+        width: 55%;
+    }
+    .wrappr {
+        overflow-x: scroll;
+    }
+    span.success-message {
+        top: -5px;
+    }
+    .mange_objsec {
+        width: 320px;
+        overflow-x: scroll;
+        _overflow: auto;
+    }
+    .attendancetype_list .btn.tbl_edit_btn {
+        margin-right: 11px;
+    }
+    .add_fixed_atndnce_body_cont form.frm_only_change_pass select.form-control {
+        margin-left: 0;
+    }
+    p.tbl_note_txt_atndnce {
+        margin: 20px 0 8px 0;
+    }
+    .float_row {
+        float: none;
+        width: 100%;
+    }
+    .studnt_add_sec {
+        padding: 11px;
+    }
+    .float_row .stars_review {
+        margin-top: 0px;
+        margin-left: -15px;
+        float: left;
+    }
+    label.browser_img_btn {
+        text-align: center !important;
+    }
+    .btn.btn-default.course_btn {
+        margin-left: 6px;
+    }
+    .country_flag {
+        margin: 0 0px 5px;
+    }
+    .manage_classroom_custom .form-control {
+        /*width: 96%;*/
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .add_fixed_atndnce_body_cont form.frm_only_change_pass select.form-control {
+        width: 99%;
+    }
+    .studentReportMenu {
+        margin: 0;
+        padding: 0;
+    }
+    .studentReportMenu li a {
+        padding: 9px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid #d6d6d6;
+    }
+    .studentReportMenu {
+        margin: 0;
+        padding: 0;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .objDescription {
+        margin-right: 50px;
+    }
+    .objDescription:after {
+        right: -30px;
+        border-left: 30px solid #ff9d11;
+    }
+    table.decorObjective>tbody tr td:nth-child(4) {
+        min-width: 630px;
+    }
+    .noteListTabCon {
+        overflow-x: auto;
+        _overflow: auto;
+        white-space: nowrap;
+    }
+    table.table.classNoteTab>tbody>tr>td:nth-child(3) {
+        white-space: normal;
+    }
+    .labelName {
+        width: 100%;
+        float: none;
+        text-align: left;
+    }
+    .main_right_pannel .change_pas_bg_editprf .profile_fld_row .labelName {
+        display: block;
+    }
+    .main_right_pannel .change_pas_bg_editprf .profile_fld_row .objectivesettingsInput {
+        display: block;
+    }
+    .main_right_pannel .change_pas_bg_editprf .profile_fld_row .labelDetail {
+        display: block;
+    }
+    .main_right_pannel .change_pas_bg_editprf .objective-setting-mb.profile_fld_row .labelDetail {
+        display: block;
+        white-space: normal;
+        line-height: normal;
+        padding-bottom: 10px;
+    }
+    .labelDetail {
+        width: 100%;
+        float: none;
+        margin-left: 0;
+    }
+    .objectivesettingsInput {
+        width: 100%;
+        float: none;
+    }
+    .courseReview.globeRev {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        margin: 7px 0 0;
+    }
+    .courseReview.globeRev img {
+        width: 100%;
+        height: auto;
+    }
+    .courseReview {
+        margin-right: 10px;
+    }
+    p.tbl_note_txt {
+        margin: 0 0 12px 0px;
+    }
+    .table_div_content {
+        padding: 0;
+        margin: 15px 0 0 0;
+    }
+    .student_schedule_help_posi .btn.help_bttn {
+        margin: 0 0 0px 0;
+    }
+    table.table_first_style.classTimeTable>tbody>tr>td:nth-child(2) {
+        text-align: center;
+        padding: 8px 10px;
+    }
+    .panel-group.help_accordion_sec {
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+    .right_main_wraper {
+        width: 100%;
+    }
+    table.decorObjective p {
+        word-break: break-all;
+    }
+    .fc-toolbar h2 {
+        font-size: 20px;
+        padding-top: 4px;
+    }
+    .noteListTab li a {
+        padding: 10px;
+    }
+    .stars_review .rating>label:before {
+        margin-right: 5px;
+        font-size: 20px;
+    }
+    .decorObjectiveOuter.table-responsive>.table>tbody>tr>td,
+    .decorObjectiveOuter.table-responsive>.table>tbody>tr>th,
+    .decorObjectiveOuter.table-responsive>.table>tfoot>tr>td,
+    .decorObjectiveOuter.table-responsive>.table>tfoot>tr>th,
+    .decorObjectiveOuter.table-responsive>.table>thead>tr>td,
+    .decorObjectiveOuter.table-responsive>.table>thead>tr>th {
+        white-space: normal;
+    }
+    body .main_left_pannel {
+        height: 100%;
+    }
+    .courseListTable.table-responsive>.table>tbody>tr>td.cosdes {
+        white-space: normal;
+    }
+    form.course_add_edit.frm_only_change_pass label.control-label,
+    form.frm_only_change_pass.change_password_edit label.control-label {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    form.course_add_edit .btn.btn-default.change_pass_submit,
+    .btn.btn-default.class_timeadd_submit,
+    .btn.btn-default.change_pass_submit {
+        display: block;
+        margin: 0 auto;
+        margin-top: 15px;
+    }
+    form.course_add_edit.frm_only_change_pass .form-group {
+        margin-bottom: 6px;
+    }
+    form.frm_only_change_pass.classtime_addedit .row.profile_fld_row label.control-label {
+        text-align: center;
+        margin-left: 0px;
+        line-height: normal;
+        margin-bottom: 25px;
+    }
+    form.form-inline.classtime_addedit select.form-control {
+        display: inline-block;
+        width: 45%;
+    }
+    form.form-inline.classtime_addedit .to_text {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        text-align: center;
+        width: 92%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0px;
+    }
+    form.form-inline.classtime_addedit .classtimeAddEdit_form {
+        text-align: center;
+    }
+    .mange_tablebtm .mg-add.btn.btn-default.change_pass_submit {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+    }
+    .manage_obj .btn.btn-default.change_pass_submit {
+        margin-bottom: 20px;
+    }
+    .manage_obj.table-responsive .table {
+        min-width: 1008px;
+    }
+    .manage_obj.table-responsive>.table.manageObjList>thead>tr>td,
+    .manage_obj.table-responsive>.table.manageObjList>tbody>tr>td,
+    .manage_obj.table-responsive>.table.manageObjList>thead>tr>th {
+        white-space: normal;
+    }
+    .print_pass {
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .print_pass .btn.btn-default.print_pass_bttn {
+        float: none;
+        display: inline-block;
+    }
+    .studnt_import .no_padding_cllm {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .demography_table.table-responsive table.table_first_style>tbody>tr>td {
+        display: block;
+        padding-bottom: 10px !important;
+        padding-top: 10px !important;
+        text-align: center;
+    }
+    .demography_table.table-responsive {
+        margin-bottom: 25px;
+    }
+    .student_report_list.table-responsive {
+        margin-bottom: 25px;
+    }
+    .lbl_c_description {
+        margin-top: 25px;
+    }
+    .update_schedule_fld .school_sch_add .right_classroom_sec {
+        width: 100%;
+    }
+    .update_schedule_fld .school_sch_add .right_classcapacity_sec {
+        width: 100%;
+    }
+    .update_schedule_fld .school_sch_add .right_classcapacity_sec input {
+        width: 100%;
+        display: block;
+        margin-left: 0px;
+    }
+    form.frm_only_change_pass.school_sch_add .row.profile_fld_row label.control-label {
+        text-align: left;
+        margin-left: 0px;
+        display: block;
+        margin-top: 8px;
+    }
+    /*.tckt_attendance_sec */
+    .assign_stdnt_crse_step1 .panel-body {
+        text-align: left;
+        padding: 20px 0 20px 39px;
+        padding: 15px;
+    }
+    .assign_stdnt_crse_step1_cstm select.form-control {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .assign_stdnt_crse_step1 .panel-body .tckt_attndnce_div {
+        float: none;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .tckt_attendance_sec {
+        width: 100%;
+    }
+    /*responsive B*/
+    .dash_cont_box a span.dash_itm_name {
+        font-size: 16px;
+    }
+    .stdnt_dsh_crs {
+        display: table-row;
+    }
+    .stdnt_dsh_crs_table {
+        overflow: hidden;
+    }
+    .greenRev.courseReview,
+    .redRev.courseReview {
+        margin-bottom: 10px;
+    }
+    table.table_block {
+        border: 0;
+    }
+    table.table_block thead {
+        display: none;
+    }
+    table.table_block tr {
+        margin-bottom: 10px;
+        display: block;
+        border: 1px solid #ccc;
+    }
+    table.table_block tr td:first-child {
+        border: 0;
+    }
+    table.table_block td {
+        display: block;
+        text-align: right;
+        font-size: 13px;
+        border-top: 1px solid #ccc;
+    }
+    table.table_block td:last-child {
+        border-bottom: 0;
+    }
+    table.table_block td:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+        display: inline-block;
+    }
+    table.bookRack tbody tr td:first-child:before,
+    table.bookRack tbody tr td:last-child:after {
+        display: none !important;
+    }
+    table.tbl_sle_bx td {
+        display: block;
+        padding: 8px !important;
+    }
+    table.tbl_sle_bx .btn.btn-default.change_pass_submit.searchDoc {
+        margin: 0;
+    }
+    .noteListTabCon table.table.student_tbl_clr thead tr th {
+        white-space: nowrap;
+    }
+    .schoolHolidaylistOuter .scrl_dv {
+        overflow: auto;
+        white-space: nowrap;
+    }
+    .schoolholidy_bx form.frm_only_change_pass input.form-control {
+        min-width: 240px;
+    }
+    .manage_classroom_custom .form-control {
+        margin-bottom: 10px;
+    }
+    .manage_classroom_custom label {
+        margin-bottom: 0;
+    }
+    table.manage_classroom_table>thead>tr>th:first-child {
+        width: 49%;
+    }
+    table.manage_classroom_table>thead>tr>th:last-child {
+        width: 30%;
+    }
+    .help_accordion_sec video {
+        width: 100%;
+        max-width: 370px;
+        margin: 0 auto;
+        display: block;
+    }
+    .help_accordion_sec video,
+    .help_accordion_sec img {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .attendenceTypeOuter {
+        overflow: auto;
+    }
+    .attendenceTypeOuter table th {
+        white-space: nowrap;
+    }
+    .add_fixed_atndnce_body_cont .form-horizontal .form-group {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .add_fixed_atndnce_body_cont form.frm_only_change_pass label.control-label {
+        padding: 0 15px;
+        text-align: left;
+        line-height: 22px;
+        margin-bottom: 10px;
+    }
+    p.atn_input_botm_text {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    p.tbl_note_txt_atndnce {
+        margin-left: 0;
+    }
+    table.staff_list_table>tbody>tr>td:first-child img,
+    table.teacher_list_table>tbody>tr>td:first-child img {
+        max-width: 75px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    table.staff_list_table>tbody>tr>td:first-child,
+    table.staff_list_table>tbody>tr>td:nth-child(2),
+    table.staff_list_table>tbody>tr>td,
+    table.teacher_list_table>tbody>tr>td:first-child,
+    table.teacher_list_table>tbody>tr>td:nth-child(2),
+    table.teacher_list_table>tbody>tr>td {
+        text-align: right;
+        padding: 8px;
+    }
+    table.staff_list_table>tbody,
+    table.teacher_list_table>tbody {
+        border: 0;
+    }
+    .ytb_lnk_txt {
+        word-break: break-all;
+    }
+    .dvo_mdl iframe {
+        width: 100%;
+    }
+    .rev_obj {
+        overflow: auto;
+        white-space: nowrap;
+    }
+    .rev_obj table.table_first_style>tbody>tr>td:nth-child(3) {
+        white-space: normal;
+    }
+    .stars_review .rating>label:before {
+        font-size: 20px;
+    }
+    table.document_listbx>tbody>tr>td:nth-child(2) {
+        text-align: center;
+        padding: 4px 8px;
+    }
+    table.document_listbx tbody tr td:first-child {}
+    table.document_listbx>tbody>tr>td:nth-child(2):before {
+        float: none;
+        display: block;
+    }
+    .preview_hover {
+        -moz-transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -o-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        transform: scale(1.5);
+        position: relative;
+        z-index: 999;
+    }
+    .profDetailSec .col-md-9-custom.col-sm-12.padding-left-none {
+        width: 100%;
+        padding-left: 15px;
+    }
+    .fc-popover.fc-more-popover {
+        width: 257px;
+        left: 58% !important;
+        margin-left: -150px !important;
+        top: 80px !important;
+    }
+    .std-report-list .custom_review .rating>label:before {
+        margin-right: 5px;
+        font-size: 12px;
+    }
+    table.decorObjective th.flow-course-name {
+        text-align: center;
+    }
+    .std_dash_flow_tb table,
+    .std_dash_flow_tb tbody,
+    .std_dash_flow_tb tr,
+    .std_dash_flow_tb td,
+    .std_dash_flow_tb th {
+        display: block;
+    }
+    .std_dash_flow_tb .bording-pass-table table {
+        display: table;
+    }
+    .std_dash_flow_tb .bording-pass-table table th {
+        display: table-cell;
+    }
+    .std_dash_flow_tb .bording-pass-table table td {
+        display: table-cell;
+    }
+    .std_dash_flow_tb .bording-pass-table table tr {
+        display: table-row;
+    }
+    .std_dash_flow_tb .bording-pass-table table tbody {
+        display: table-row-group;
+    }
+    .std_dash_flow_tb .border-shape-ang {
+        display: none;
+    }
+    .std_dash_flow_tb .flow-below-sec .list-box {
+        padding: 4px 4px;
+    }
+    .std_dash_flow_tb .airoplan.dynamic-point {
+        top: -4px;
+        transform: scale(0.7);
+    }
+    .std_dash_flow_tb .progress-flow-line {
+        height: 3px;
+    }
+    .std_dash_flow_tb .flow-below-sec .list-box {
+        width: 16%;
+    }
+    .std_dash_flow_tb .discuss-table {
+        width: 50px;
+        height: 50px;
+        margin-top: 19px;
+    }
+    .std_dash_flow_tb .building-point {
+        width: 50px;
+        height: 50px;
+        margin-top: 19px;
+    }
+    .std_dash_flow_tb .progress-flow-line {
+        width: 80%;
+        width: calc(100% - 112px);
+    }
+    .std_dash_flow_tb .airoplan-container {
+        width: 80%;
+        width: calc(100% - 112px);
+    }
+    .std_dash_flow_tb .progress-flow-line {
+        top: 15px;
+    }
+    .std_dash_flow_tb .flow-below-sec {
+        padding: 4px 4px;
+    }
+    a.boarding-pass-status {
+        font-size: 12px;
+        max-width: 200px;
+    }
+    .boarding-pass-status:after {
+        border-width: 13px 100px 0 100px;
+    }
+    .std_dash_flow_tb.studntrpts.tabSec {
+        background-color: #fff;
+        padding-top: 15px;
+    }
+    .teacherfeed_mail_sec.footer-course p.course_datetime_txt {
+        float: left;
+    }
+    .assign_clm_text_align .checkbox {
+        width: 100%;
+    }
+    select.product_add_select {
+        width: 76px;
+    }
+    a.forget_pass_txt {
+        font-size: 13px;
+    }
+    .fc-more-popover .fc-event-container {
+        max-height: 350px;
+        overflow-y: auto;
+    }
+    .update_schedule_fld_mb.update_schedule_fld .right_classroom_sec {
+        width: 100%;
+    }
+    .update_schedule_fld_mb.update_schedule_fld .right_classcapacity_sec {
+        width: 100%;
+    }
+    .update_schedule_fld_mb.update_schedule_fld .right_classcapacity_sec input {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .update_schedule_fld_mb.update_schedule_fld form.frm_only_change_pass .row.profile_fld_row label.control-label {
+        width: 100%;
+        margin-top: 6px;
+    }
+    .fc-day-grid-event .fc-time {
+        min-width: 74px;
+    }
+    table.table_first_style.student_list_table>tbody {
+        border: 0px solid #ff0000;
+    }
+    /*---------------Edited By Suresh-----------------*/
+    .std_obj_respnsv .table-responsive {
+        overflow: hidden;
+    }
+    .std_obj_respnsv .table-responsive>.table>tbody>tr>td,
+    .std_obj_respnsv .table-responsive>.table>tbody>tr>th,
+    .std_obj_respnsv .table-responsive>.table>tfoot>tr>td,
+    .std_obj_respnsv .table-responsive>.table>tfoot>tr>th,
+    .std_obj_respnsv .table-responsive>.table>thead>tr>td,
+    .std_obj_respnsv .table-responsive>.table>thead>tr>th {
+        display: inline;
+        display: initial;
+        /*padding: 0px;*/
+    }
+    .std_obj_respnsv table.decorObjective>tbody tr td tr td {
+        width: 100% !important;
+        text-align: left;
+    }
+    .std_obj_respnsv table.table_block td:before {
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+    .std_obj_respnsv .flow-below-sec .list-box {
+        width: 30%;
+    }
+    .std_obj_respnsv .studentReportMenu .col-md-12 {
+        padding: 0 !important;
+    }
+    .std_obj_respnsv.change_pas_bg {
+        padding: 5px 0;
+    }
+    .std_obj_respnsv table.table_block tr {
+        padding: 10px 5px;
+    }
+    .std_obj_respnsv .course-review-flow {
+        padding: 5px;
+    }
+    .std_obj_respnsv .lbl_class_course_Name {
+        font-size: 16px;
+    }
+    .std_obj_respnsv .courseName {
+        font-size: 16px;
+    }
+    .std_obj_respnsv .objDescription {
+        min-height: auto;
+        border-radius: 3px;
+        margin: 5px 0 0px 0;
+        text-align: left;
+        width: 100%;
+    }
+    .std_obj_respnsv .objDescription:after {
+        display: none;
+    }
+    .std_obj_respnsv .objObjectives {
+        float: left;
+        margin: 5px auto;
+    }
+    .std_obj_respnsv .objStatus {
+        clear: both;
+        margin: 5px auto;
+    }
+    .std_obj_respnsv .objStart li {
+        clear: both;
+        margin: 5px auto;
+    }
+    .std_obj_respnsv table.table_block td {
+        border-top: 0;
+    }
+    .std_obj_respnsv .table>tbody>tr>td,
+    .std_obj_respnsv .table>tbody>tr>th,
+    .table>tfoot>tr>td,
+    .std_obj_respnsv .table>tfoot>tr>th,
+    .table>thead>tr>td,
+    .std_obj_respnsv .table>thead>tr>th {
+        border-top: 0;
+    }
+    .std_obj_respnsv .course-review-flow {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .std_obj_respnsv .objNum {
+        /*margin: 5px 0 5px 0;*/
+        margin: 1px auto;
+    }
+    .std_obj_respnsv .objTopic {
+        margin: 5px auto;
+        text-align: left;
+    }
+    .std_obj_respnsv .course-review-flow .box-container {
+        /*padding-bottom: 0px;*/
+    }
+    .std_obj_respnsv table.decorObjective p {
+        white-space: normal;
+        margin-bottom: 0;
+        text-align: left;
+    }
+    .std_obj_respnsv .bording-pass-table table tbody tr td {
+        text-align: center;
+        margin: 5px auto;
+        width: 100% !important;
+    }
+    /*----------------Edited By Suresh table block end-----------------*/
+    .std-rpt-list-obj .bording-pass-table table tr {
+        display: table-row;
+    }
+    .std-rpt-list-obj .bording-pass-table table td,
+    .std-rpt-list-obj .bording-pass-table table th {
+        display: table-cell;
+        font-size: 10px;
+        text-align: left;
+        padding: 13px 5px 11px 5px;
+    }
+    .bording-pass-table table tbody tr:first-child td {
+        font-size: 11px;
+    }
+    .std-rpt-list-obj .bording-pass-table table tbody tr td {
+        border: 1px solid #4c5f73;
+    }
+    .std-rpt-list-obj .bording-pass-table table td:before {
+        display: none;
+    }
+    .std-rpt-list-obj div.bording-pass-table {
+        border: 4px solid #4c5f73;
+    }
+    .std_obj_respnsv.std_dash_flow_tb {}
+    .std_obj_respnsv.std_dash_flow_tb .border-shape-ang {
+        display: inline-block;
+    }
+    .std_obj_respnsv.std_dash_flow_tb .flow-below-sec .list-box {
+        width: 21%;
+    }
+    .close_open_tab {
+        display: inline-block !important;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 16px;
+        float: right;
+    }
+    .close_open_tab.open-tab:after {
+        content: "\f068";
+    }
+    .close_open_tab.close-tab:after {
+        content: "\f067";
+    }
+    /*.std_list_no_padding {
+        padding: 0px;
+    }*/
+    /*.std-rpt-list-obj table.table_block tr {
+        border-left: 0px;
+        border-right: 0px;
+        }*/
+    .std_obj_respnsv.std_dash_flow_tb {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .std_dash_flow_tb.std_obj_respnsv .decorObjective>tbody>tr {
+        border-bottom: 1px solid #ddd;
+    }
+    table.table_first_style>thead>tr>th {
+        line-height: normal;
+    }
+    table.table_first_style.student_list_table>thead>tr>th:first-child,
+    table.table_first_style.student_list_table>thead>tr>th:nth-child(2) {
+        text-align: left;
+        padding: 0 5px;
+    }
+    .history_filter .no_padding_cllm {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-top: 10px;
+    }
+    .obj-css.ob-setting-new .labelDetail {
+        width: 100%;
+    }
+    .sch_schedule .text-right {
+        text-align: left;
+    }
+    .sch_schedule .btn.btn-default.add_schedule_btn {
+        float: none;
+        margin: 0;
+        margin-bottom: 14px;
+    }
+    .cancel_mp_rule form.frm_only_change_pass label.control-label {
+        padding: 0 15px;
+        text-align: left;
+        line-height: 22px;
+        margin-bottom: 10px;
+        display: block;
+    }
+    .course_cls_prev_nxt .lbl_pn {
+        display: none;
+    }
+    .makeup-level.obj-css.ob-setting-new .labelName {
+        width: 100%;
+        float: none;
+    }
+    form.frm_only_change_pass .makeup-level.obj-css.ob-setting-new .form-control {
+        float: left;
+        width: 100%;
+    }
+    .table_div_content.sm-tb-lavel {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .main_right_pannel .change_pas_bg_editprf .profile_fld_row.ob-setting-new .labelName {
+        line-height: normal;
+        margin-bottom: 6px;
+    }
+    form.frm_only_change_pass .row.profile_fld_row.ob-setting-new label.control-label {
+        margin-bottom: 10px;
+    }
+    .main_right_pannel .change_pas_bg_editprf .profile_fld_row .objectivesettingsInput {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .dash_cont_box {
+        width: 50%;
+    }
+    .dash_cont_box a {
+        /*min-height: 230px;*/
+        padding: 20% 10px;
+    }
+    table.manage_classroom_table>thead>tr>th:first-child {
+        width: 70%;
+    }
+    table.manage_classroom_table>thead>tr>th:last-child {
+        width: 20%;
+    }
+    .manage_classroom_custom .form-control {
+        width: 40%;
+        display: inline-block;
+        margin-left: 6px;
+    }
+    .fc-popover.fc-more-popover {
+        width: 300px;
+        left: 50% !important;
+        margin-left: -150px !important;
+        top: 80px !important;
+    }
+    .std_dash_flow_tb .border-shape-ang {
+        display: inline-block;
+        padding: 1px 2px;
+        font-size: 9px;
+    }
+    .std_dash_flow_tb .airoplan.dynamic-point {
+        transform: scale(0.8);
+    }
+    .assign_clm_text_align .checkbox {
+        width: 49%;
+    }
+    .std-rpt-list-obj div.bording-pass-table {
+        border: 10px solid #4c5f73;
+    }
+    .std-rpt-list-obj .bording-pass-table table td,
+    .std-rpt-list-obj .bording-pass-table table th {
+        font-size: 13px;
+        padding: 13px 10px 11px 10px;
+    }
+    .std-rpt-list-obj .bording-pass-table table tbody tr td {
+        border: 2px solid #4c5f73;
+    }
+
+    .course_cls_prev_nxt .lbl_pn {
+        display: inline;
+    }
+    .makeup-level.obj-css.ob-setting-new .labelName {
+        width: 63%;
+        float: left;
+    }
+    form.frm_only_change_pass .makeup-level.obj-css.ob-setting-new .form-control {
+        float: left;
+        width: 34%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .main_mid_sec {
+        display: block;
+        width: 100%;
+        background: #f3f3f3;
+    }
+    .main_left_pannel {
+        display: block;
+        float: left;
+    }
+    .main_right_pannel {
+        display: block;
+        width: 90%;
+        width: calc(100% - 70px);
+        float: left;
+        padding: 0;
+        margin: 0;
+        background: #f3f3f3;
+        box-sizing: border-box;
+    }
+    table.decorObjective>tbody tr td:nth-child(4) {
+        min-width: 630px;
+    }
+    .decorObjectiveOuter.table-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #ddd;
+    }
+    .left_slider_btn {
+        display: none;
+    }
+    .fc-toolbar h2 {
+        font-size: 25px;
+    }
+    .student_schedule_help_posi .btn.help_bttn {
+        margin: 0 0 0px 0;
+    }
+    .right_main_wraper {
+        width: 100%;
+    }
+    .main_footer_bg {
+        padding: 17px 0;
+    }
+    form.course_add_edit .btn.btn-default.change_pass_submit,
+    .btn.btn-default.class_timeadd_submit,
+    .btn.btn-default.change_pass_submit {
+        display: block;
+        margin: 0 auto;
+        margin-top: 15px;
+    }
+    .btn.btn-default.change_pass_submit.btn-no-top-mg {
+        margin-top: 0px;
+    }
+    table.table_first_style.classTimeTable>tbody>tr>td:nth-child(2) {
+        text-align: center;
+        padding: 8px 10px;
+    }
+    form.frm_only_change_pass.classtime_addedit .row.profile_fld_row label.control-label {
+        text-align: center;
+        margin-left: 0px;
+        line-height: normal;
+        margin-bottom: 25px;
+    }
+    form.form-inline.classtime_addedit .classtimeAddEdit_form {
+        text-align: center;
+    }
+    .mange_tablebtm .mg-add.btn.btn-default.change_pass_submit {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+    }
+    .manage_obj .btn.btn-default.change_pass_submit {
+        margin-bottom: 20px;
+    }
+    form.object_set_addedit.frm_only_change_pass .row.profile_fld_row label.control-label {
+        line-height: 32px;
+        padding-bottom: 20px;
+    }
+    form.frm_only_change_pass.studnt_add .row.profile_fld_row label.control-label {
+        padding: 0 15px;
+        text-align: left;
+        line-height: 22px;
+        margin-bottom: 5px;
+    }
+    form.frm_only_change_pass.report_list .row.profile_fld_row label.control-label {
+        padding: 0 15px;
+        text-align: left;
+        line-height: 22px;
+        margin-bottom: 5px;
+    }
+    form.frm_only_change_pass.advrtcourse_sec .row.profile_fld_row label.control-label,
+    form.frm_only_change_pass .row.profile_fld_row label.control-label {
+        padding: 0 15px;
+        text-align: left;
+        line-height: 22px;
+        margin-bottom: 5px;
+        display: block;
+    }
+    .demography_table.table-responsive table.table_first_style>tbody>tr>td {
+        display: block;
+        padding-bottom: 10px !important;
+        padding-top: 10px !important;
+        text-align: center;
+    }
+    .demography_table.table-responsive {
+        margin-bottom: 25px;
+    }
+    .student_report_list.table-responsive {
+        margin-bottom: 25px;
+    }
+    .lbl_c_description {
+        margin-top: 25px;
+    }
+    .noteListTabCon {
+        overflow-x: auto;
+        _overflow: auto;
+        white-space: nowrap;
+    }
+    table.table.classNoteTab>tbody>tr>td:nth-child(3) {
+        white-space: normal;
+    }
+    .student_report_list.table-responsive table.report_sec {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .school_sch_add .row.profile_fld_row {
+        margin-bottom: 0px;
+    }
+    .school_sch_add .row.profile_fld_row input,
+    .school_sch_add .row.profile_fld_row select {
+        margin-bottom: 18px;
+    }
+    /*left menue css*/
+    /*body .main_mid_sec {
+        position: relative;
+    }
+    body .main_mid_sec .main_left_pannel {
+        position: absolute;
+        height: 100%;
+    }
+    body .main_mid_sec .main_right_pannel {
+        margin-left: 70px;
+    }*/
+    .assign_course_fx_att .btn.btn-default.change_pass_submit {
+        display: inline-block;
+        margin-top: 0px;
+    }
+    ul.edit_prof_topul>li>span {
+        font-size: 15px;
+        margin: 0 0 0 0px;
+        display: inline-block;
+    }
+    ul.edit_prof_topul li {
+        text-align: center;
+    }
+    ul.edit_prof_topul>li>strong {
+        margin: 0 0 0 0px;
+    }
+    .dash_cont_box a {
+        min-height: 267px;
+        padding: 20% 10px;
+    }
+    .dash_cont_box a span.dash_itm_name {
+        margin-top: 20px;
+    }
+    .scl_desc {
+        width: 100%;
+    }
+    .nav_closed .main_left_pannel ul.main_left_ul>li>a {
+        padding: 5px;
+    }
+    .stdnt_dsh_crs {
+        display: table-row;
+    }
+    .greenRev.courseReview,
+    .redRev.courseReview {
+        margin-bottom: 10px;
+    }
+    table.table_block>tbody>tr>td {}
+    table.document_repository_list_table.tbl_sle_bx>tbody>tr>td:first-child {
+        padding: 8px;
+    }
+    .dct_wrp {
+        /*overflow-x: scroll;*/
+        padding: 0 10px;
+        white-space: nowrap;
+    }
+    .dct_wrp table.table_block>tbody>tr>td:nth-child(3) {
+        white-space: normal;
+    }
+    .dct_wrp table>thead>tr>th {
+        white-space: nowrap;
+    }
+    table.decorObjective thead>tr:first-child th:nth-child(3) {
+        width: 8%;
+    }
+    .schoolHolidaylistOuter .scrl_dv {
+        overflow: auto;
+        white-space: nowrap;
+    }
+    .schoolholidy_bx form.frm_only_change_pass input.form-control {
+        min-width: 240px;
+    }
+    .attendenceTypeOuter {
+        overflow: auto;
+    }
+    .attendenceTypeOuter table th {
+        white-space: nowrap;
+    }
+    .add_fixed_atndnce_body_cont .form-horizontal .form-group {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .add_fixed_atndnce_body_cont form.frm_only_change_pass label.control-label {
+        padding: 0 15px;
+        text-align: left;
+        line-height: 22px;
+        margin-bottom: 10px;
+    }
+    .help_accordion_sec video,
+    .help_accordion_sec img {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    p.tbl_note_txt_atndnce {
+        margin-left: 0;
+    }
+    form.frm_only_change_pass .row.profile_fld_row label.control-label {
+        line-height: 22px;
+    }
+    .teacherListOuter {
+        overflow: auto;
+    }
+    table.teacher_list_table>thead>tr>th {
+        white-space: nowrap;
+    }
+    .lbl_sprt {
+        padding-left: 15px;
+    }
+    .rev_obj {
+        overflow: auto;
+        white-space: nowrap;
+    }
+    .rev_obj table.table_first_style>tbody>tr>td:nth-child(3) {
+        white-space: normal;
+    }
+    .stars_review .rating>label:before {
+        font-size: 20px;
+    }
+    .report_sec_table_outer .student_list_table.report_sec.table>thead:first-child>tr:first-child>th {
+        white-space: nowrap;
+    }
+    .std_dash_flow_tb .border-shape-ang {
+        font-size: 8px;
+        margin-bottom: 8px;
+    }
+    .update_schedule_fld_mb.update_schedule_fld .right_classroom_sec {
+        width: 100%;
+    }
+    .update_schedule_fld_mb.update_schedule_fld .right_classcapacity_sec {
+        width: 100%;
+    }
+    .update_schedule_fld_mb.update_schedule_fld .right_classcapacity_sec input {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .update_schedule_fld_mb.update_schedule_fld form.frm_only_change_pass .row.profile_fld_row label.control-label {
+        width: 100%;
+        margin-top: 6px;
+    }
+    .update_schedule_fld_mb.update_schedule_fld form.frm_only_change_pass .row.profile_fld_row .teacher_assign_fld label.control-label,
+    .update_schedule_fld_mb.update_schedule_fld form.frm_only_change_pass .row.profile_fld_row .right_classcapacity_sec label.control-label {
+        padding-left: 0px;
+    }
+    /*sch_add_2_fix*/
+    .update_schedule_fld .sch_add_2_fix .right_classcapacity_sec {
+        width: 100%;
+    }
+    .update_schedule_fld .sch_add_2_fix .right_classroom_sec {
+        width: 100%;
+    }
+    .update_schedule_fld .sch_add_2_fix .right_classcapacity_sec input.form-control {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .update_schedule_fld .sch_add_2_fix .right_classcapacity_sec .right_classcapacity_label {
+        display: none !important;
+    }
+    .sch_add_2_fix .class-capacity-md {
+        display: block !important;
+        padding-top: 31px !important;
+    }
+    .top_right_sec {
+        padding-right: 15px;
+    }
+    .pass-word-chng {
+        padding: 0px 25px;
+    }
+    .std_dash_flow_tb .airoplan-container,
+    .std_dash_flow_tb .progress-flow-line {
+        width: 74%;
+        width: calc(100% - 162px);
+    }
+    #ui-datepicker-div {
+        max-width: 218px;
+    }
+    /*----------------Edited By Suresh table block start-----------------*/
+    /*.std_obj_respnsv .table>tbody>tr>td,
+    .std_obj_respnsv .table>tbody>tr>th,
+    .std_obj_respnsv .table>tfoot>tr>td,
+    .std_obj_respnsv .table>tfoot>tr>th,
+    .std_obj_respnsv .table>thead>tr>td,
+    .std_obj_respnsv .table>thead>tr>th {
+        display: block;
+    }
+    .std_obj_respnsv .table-responsive {
+        min-height: .01%;
+        overflow-x: inherit;
+    }
+    .std_obj_respnsv table.table_block thead {
+        display: none;
+    }
+    .std_obj_respnsv table.table_block td:before {
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+    .std_obj_respnsv table.table_block td:before {
+        content: attr(data-label);
+        float: left;
+        text-transform: uppercase;
+        font-weight: bold;
+        display: inline-block;
+    }
+    .std_obj_respnsv .table-responsive {
+        overflow: hidden;
+    }
+    .std_obj_respnsv .table-responsive>.table>tbody>tr>td,
+    .std_obj_respnsv .table-responsive>.table>tbody>tr>th,
+    .std_obj_respnsv .table-responsive>.table>tfoot>tr>td,
+    .std_obj_respnsv .table-responsive>.table>tfoot>tr>th,
+    .std_obj_respnsv .table-responsive>.table>thead>tr>td,
+    .std_obj_respnsv .table-responsive>.table>thead>tr>th {
+        display: initial;
+    }
+    .std_obj_respnsv table.decorObjective > tbody tr td tr td {
+        text-align: left;
+    }
+    .std_obj_respnsv table.table_block td:before {
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+    .std_obj_respnsv .flow-below-sec .list-box {
+        width: 30%;
+    }
+    .std_obj_respnsv .studentReportMenu .col-md-12 {
+        padding: 0 !important;
+    }
+    .std_obj_respnsv.change_pas_bg {
+        padding: 5px 0;
+    }
+    .std_obj_respnsv table.table_block tr {
+        padding: 10px 5px;
+    }
+    .std_obj_respnsv .course-review-flow {
+        padding: 5px;
+    }
+    .std_obj_respnsv .lbl_class_course_Name {
+        font-size: 16px;
+    }
+    .std_obj_respnsv .courseName {
+        font-size: 16px;
+    }
+    .std_obj_respnsv .objDescription {
+        min-height: auto;
+        border-radius: 3px;
+        margin: 5px 0 0px 0;
+        text-align: left;
+        width: 100%;
+    }
+    .std_obj_respnsv .objDescription:after {
+        display: none;
+    }
+    .std_obj_respnsv .objObjectives {
+        float: left;
+    }
+    .std_obj_respnsv .objStatus {
+        clear: both;
+        margin: 5px auto;
+    }
+    .std_obj_respnsv .objStart li {
+        clear: both;
+        margin: 5px auto;
+    }
+    .std_obj_respnsv table.table_block td {
+        border-top: 0;
+    }
+    .std_obj_respnsv .table>tbody>tr>td,
+    .std_obj_respnsv .table>tbody>tr>th,
+    .table>tfoot>tr>td,
+    .std_obj_respnsv .table>tfoot>tr>th,
+    .table>thead>tr>td,
+    .std_obj_respnsv .table>thead>tr>th {
+        border-top: 0;
+    }
+    .std_obj_respnsv .course-review-flow {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .std_obj_respnsv .objNum {
+        margin: 5px 0 5px 0;
+    }
+    .std_obj_respnsv .objTopic {
+        margin: 5px auto;
+        text-align: left;
+    }
+    .std_obj_respnsv .course-review-flow .box-container {
+        padding-bottom: 0px;
+    }
+    .std_obj_respnsv table.decorObjective p {
+        white-space: normal;
+        margin-bottom: 0;
+        text-align: left;
+    }
+    .std_obj_respnsv .bording-pass-table table tbody tr td {
+        text-align: center;
+        margin: 5px auto;
+        width: 100% !important;
+    }*/
+    /*----------------Edited By Suresh table block end-----------------*/
+    .std_obj_respnsv table.decorObjective>tbody tr td:nth-child(4) {
+        min-width: inherit;
+    }
+    .std_obj_respnsv .objDescription {
+        width: 98px;
+    }
+    .objObjectives li {
+        max-width: 100px;
+        word-wrap: break-word;
+    }
+    .std_obj_respnsv .flow-below-sec .list-box {
+        width: 14%;
+    }
+    .profDetailSec .col-md-9-custom.col-sm-12.padding-left-none {
+        width: 100%;
+        padding-left: 15px;
+    }
+    form.frm_only_change_pass.studnt_add .profDetailSec .row.profile_fld_row label.control-label {
+        padding: 0px;
+    }
+    .profDetailSec .no_padding_cllm {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .obj-css.ob-setting-new .labelDetail {
+        line-height: normal;
+        width: 37%;
+    }
+    .cancel_mp_rule form.frm_only_change_pass label.control-label {
+        padding: 0 15px;
+        text-align: left;
+        line-height: 22px;
+        margin-bottom: 10px;
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1170px) {
+    .objDescription {
+        width: 120px;
+    }
+    .scl_desc {
+        width: 100%;
+    }
+    .nav_closed .main_left_pannel ul.main_left_ul>li>a {
+        padding: 5px;
+    }
+    .left_slider_btn {
+        display: none;
+    }
+    .btn.tbl_edit_btn {
+        margin-right: 5px;
+    }
+    .add_fixed_atndnce_body_cont form.frm_only_change_pass label.control-label {
+        line-height: 22px;
+    }
+    .dct_wrp {
+        /*overflow-x: scroll;*/
+        padding: 0 10px;
+        white-space: nowrap;
+    }
+    .dct_wrp table.table_block>tbody>tr>td:nth-child(3) {
+        white-space: normal;
+    }
+    .schoolHolidayList .btn.tbl_dlt_btn {
+        width: 66px;
+    }
+    .std_dash_flow_tb .airoplan-container,
+    .std_dash_flow_tb .progress-flow-line {
+        width: 80%;
+        width: calc(100% - 162px);
+    }
+    .std_obj_respnsv table.decorObjective>tbody tr td tr td:first-child {
+        width: 30%;
+    }
+    .add_irregular .class_time select {
+        width: 45.555555% !important;
+    }
+    .cancel_mp_rule form.frm_only_change_pass label.control-label {
+        line-height: 22px;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1320px) {
+    .sch_add_2_fix .class-capacity-md {
+        display: block !important;
+        padding-top: 31px !important;
+    }
+    .update_schedule_fld .sch_add_2_fix .right_classcapacity_sec .right_classcapacity_label {
+        display: none !important;
+    }
+    .update_schedule_fld .sch_add_2_fix .right_classcapacity_sec {
+        width: 100%;
+    }
+    .update_schedule_fld .sch_add_2_fix .right_classroom_sec {
+        width: 100%;
+    }
+    .update_schedule_fld .sch_add_2_fix .right_classcapacity_sec input.form-control {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .update_schedule_fld .sch_add_2_fix .right_classroom_sec select {
+        margin-bottom: 18px;
+    }
+}
+
+
+
+
+
+/*=================Responsive styles=================================*/

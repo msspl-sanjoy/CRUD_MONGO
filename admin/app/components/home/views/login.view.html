@@ -1,0 +1,45 @@
+<div class="container">
+      <div class="row">
+      <div class="col-lg-4 col-lg-offset-4 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 login_wht_bg">
+        <!-- <h2 class="login_hd_txt animated zoomInDown" translate="LOGIN"></h2> -->
+       
+        <div class="login_box teacher-login-box">
+
+          <a href="#/home/login" title="abc" class="logo_posi animated zoomInDown"><img class="img-logo" src="assets/images/logo.png"></a>
+        
+        <form name="loginForm"  ng-submit="doLogin(loginData)" class="error_alrt_posi" novalidate>
+
+        <span class="error-message show" ng-if="error_message">{{error_message}}</span>
+        
+      
+        
+          <div class="input-group frm_sec">            
+          <input class="form-control login_text_filds" type="text" maxlength="30" name="uname" placeholder="username" disallow-spaces ng-model="loginData.username" ng-required="true">
+          </div>
+
+          <div class="input-group frm_sec">            
+          <input class="form-control login_text_filds" type="password" maxlength="30" name="pass" placeholder="password" disallow-spaces  ng-model="loginData.password" ng-required="true">
+          </div>
+
+
+
+        <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-default login_bttn" title="LOGIN" >LOGIN</button>
+
+   <!--        <div class="bott_login clearfix">
+          <select ng-model="lang" class="product_add_select animated fadeInLeft" ng-change="changeLanguage(lang)">        
+              <option ng-repeat="language in siteLanguages" value="{{language.code}}">{{language.name}}</option>
+          </select>
+          <a class="forget_pass_txt animated fadeInRight" href="#/home/forgetpassword" translate="FORGOT PASSWORD" ></a>        
+          </div> -->
+          
+        </form>
+        </div>
+
+
+
+
+      </div>
+      </div>
+    </div>
+
+<!-- /.Loginbox -->
