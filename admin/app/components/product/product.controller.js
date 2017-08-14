@@ -1,6 +1,6 @@
 angular
 	.module('angular_mongo')
-	.controller('productController', ["$scope", 'ajaxService', 'CONFIG', '$location', '$timeout', '$cookies', '$state', "helper", "$rootScope",'$window', function($scope, ajaxService, CONFIG, $location, $timeout, $cookies, $state, helper, $rootScope,$window)
+	.controller('productController', ["$scope", 'ajaxService', 'CONFIG', '$location', '$timeout', '$cookies', '$state', "helper", "$rootScope",'$window','$stateParams', function($scope, ajaxService, CONFIG, $location, $timeout, $cookies, $state, helper, $rootScope,$window,$stateParams)
 	{
 		//alert($state.$current.name);
 
@@ -10,11 +10,15 @@ angular
 	    $scope.order_by 			= 'id';
 	    $scope.order 				= 'desc';
 	    $scope.searchByName 		= '';
+	    $scope.productsDetail 		= {};
+		$scope.productsID 			= $stateParams.productsID;
+		$scope.successMessage 		= '';
+	    $scope.errorMessage 		= '';	
 		
 		// Perform to getAllDegree action
 		$scope.getAllProducts = function(pageno, order_by, order)
 		{ 
-	        //alert(CONFIG.ApiUrl);
+	        //alert($scope.searchByName);
 	        //alert("hii");
 	        $scope.pageno 	= pageno ? pageno : 1;
 	       	$scope.order_by = order_by ? order_by : 'id';
@@ -23,14 +27,14 @@ angular
 	        var getproductsParam = 
 	        {
 	        	
-	            'name'		: $scope.searchByName,
+	            'searchByName'		: $scope.searchByName,
 	            'order_by'			: $scope.order_by,
 	            'order'				: $scope.order,
 	            'page'				: $scope.pageno,
 	            'page_size'			: $scope.itemsPerPage
 	        };
 
-	        //alert(getDegreeParam.searchByName);
+	        //alert(getproductsParam.searchByName);
 			ajaxService.ApiCall(getproductsParam, CONFIG.ApiUrl+'products/getAllProducts', $scope.getAllProductsSuccess, $scope.getAllProductsError, 'post');
 		}
 
@@ -97,18 +101,8 @@ angular
 
 		$scope.doaddproducts = function(productsData) 
 		{ 
-			var formdata = new FormData();
-			formdata.append('file',$scope.product_img);
-			formdata.append('user_pass_key',$cookies.get('user_pass_key'));
-			//formddata.append('user_id',$cookies.get('user_id'));
-		    
-		    angular.forEach(productsData, function(value, key) {
-			formdata.append(key, value);
-			});
-
-			
-
-	ajaxService.ApiCallImagePost(formdata, CONFIG.ApiUrl+'products/addProducts', $scope.addProductsSuccess, $scope.addProductsError, 'post');
+			var productsParam=productsData;
+			ajaxService.ApiCall(productsParam, CONFIG.ApiUrl+'products/addProducts', $scope.addProductsSuccess, $scope.addProductsError, 'post');
 		}
 
 		//addDegree success function
@@ -180,16 +174,15 @@ angular
             }, CONFIG.TimeOut);
 		}
 
-	}])
-	.controller('editProductController',["$scope", 'ajaxService', 'CONFIG', '$location', '$timeout', '$cookies', '$state', "helper", "$rootScope",'$stateParams','$window',function($scope,ajaxService,CONFIG,$location,$timeout,$cookies, $state, helper, $rootScope, $stateParams,$window){
-	$scope.productsDetail 	= {};
-	$scope.productsID 		= $stateParams.productsID;
-	$scope.successMessage 	= '';
-    $scope.errorMessage 	= '';
+	
  // Perform to getDegreeDetail action
 		$scope.getProductsDetail = function()
 		{ 
+			//alert("here");
+			//alert($stateParams.productsID);
+			//var productsID    = $stateParams.productsID ;
 			var productsParam = {'productsID' : $scope.productsID};
+			//	alert(productsParam.productsID);
 			ajaxService.ApiCall(productsParam, CONFIG.ApiUrl+'products/getProductsDetail', $scope.getProductsDetailSuccess, $scope.getProductsDetailError, 'post');
 		}
 
@@ -205,14 +198,13 @@ angular
                 //$scope.productsDetail = result.raws.data.dataset;
                 //alert("hii");
                 $scope.productsDetail.id=result.raws.data.dataset[0].productsId;
-                //alert($scope.productsDetail.id);
                 $scope.productsDetail.name = result.raws.data.dataset[0].name;
                 $scope.productsDetail.product_code = result.raws.data.dataset[0].product_code;
                 $scope.productsDetail.price = result.raws.data.dataset[0].price;
                 $scope.productsDetail.cat_id = result.raws.data.dataset[0].category_id;
                 //$scope.productsDetail.product_img_url = result.raws.data.dataset.product_img_url;
                 $scope.productsDetail.cat_name = result.raws.data.dataset[0].category_id.toString();
-                //alert($scope.productsDetail.name);
+                
 		    }
 		}
 

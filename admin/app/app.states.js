@@ -85,30 +85,7 @@ angular
             //url: '/home/login',
             url: '/login',
             templateUrl: 'app/components/home/views/login.view.html'
-        })
-
-        .state('forgetpassword', {
-            parent: 'home',
-            //url: '/home/forgetpassword',
-            url: '/forgetpassword',
-            templateUrl: 'app/components/home/views/forgetPassword.view.html'
-        })
-
-        .state('verifyPasscode', {
-            parent: 'home',
-            //url: '/home/verifyPasscode',
-            url: '/verifyPasscode',
-            templateUrl: 'app/components/home/views/verifyPasscode.view.html'
-        })
-
-        .state('resetPassword', {
-            parent: 'home',
-            //url: '/home/resetPassword',
-            url: '/resetPassword',
-            templateUrl: 'app/components/home/views/resetPassword.view.html'
-        })        
-
-
+        })    
 
         //Dashboard module section
         .state('dashboard', {
@@ -120,8 +97,6 @@ angular
                   templateUrl: 'app/components/dashboard/views/dashboard.index.view.html'
                 },
             }
-
-
 
         })
 
@@ -173,7 +148,7 @@ angular
         .state("product.update-product",{
           url:'/update-product/:productsID',
           templateUrl:'app/components/product/views/update.product.html',
-          controller: 'editProductController',
+          controller: 'productController',
           onEnter: function($state,$rootScope){ // define value and load the default variable in our page
             $rootScope.parentBreadcrumb = 'Dashboard';
             $rootScope.breadcrumb       = 'Product';

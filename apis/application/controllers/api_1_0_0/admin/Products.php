@@ -137,13 +137,16 @@ function getAllProducts_post(){
 
         $req_arr['order']           = $this->input->post('order', true);
         $req_arr['order_by']        = $this->input->post('order_by', true);
-        $req_arr['searchByName']    = $this->input->post('searchByName', true);
+        $search                     = $this->input->post('searchByName', true);
 
       if($flag)
       {
 
-               
-       $details_arr     = $this->products->find();
+       $nmregx                      =new MongoRegex("/$search/i");
+       $like                        =array('name'=>$nmregx);
+
+       //print_r($like);die();
+       $details_arr                 = $this->products->find($like);
 
        
 
@@ -199,7 +202,9 @@ if (!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobal
         $req_arr = $details_arr = array();
         //pre($this->input->post(),1);
         $flag = true;
-        //echo $this->post('pass_key',true); exit();
+        //echo $this->post('id',true); exit();
+
+       
         if(empty($this->post('name',true))){
           $flag = false;
           $error_message = "Products Name is required";
@@ -207,13 +212,13 @@ if (!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobal
         }else{
             $req_arr['product_name'] = $this->post('name',true);
         }
-        if(empty($this->post('category_name',true))){
+        if(empty($this->post('cat_name',true))){
 
             $flag = false;
-            $error_message = "Category is required";
+            $error_message = "Category name is required";
 
         }else{
-            $req_arr['cat_id'] = $this->post('category_name',true);
+            $req_arr['cat_id'] = $this->post('cat_name',true);
             if($req_arr['cat_id']=='1')
             {
                 $req_arr['cat_name']="Laptop";
@@ -228,6 +233,8 @@ if (!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobal
             }
             $req_arr['category']=array('id'=>$req_arr['cat_id'],'name'=>$req_arr['cat_name']);
 
+            //print_r($req_arr['category']);die();
+
         }
         if(empty($this->post('price',true))){
             $flag = false;
@@ -239,6 +246,7 @@ if (!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobal
        $req_arr['product_code']='PR'.rand(000,999);
 
        $result_arr['id'] = '1';
+       $product_id= $this->post('id',true);
   
     //pre($req_arr,1);
 
@@ -248,23 +256,48 @@ if (!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobal
     
         if($flag)
         {
-            $insert_array=array('_id'=>new MongoId(),
-                                "name"=>$req_arr['product_name'],
-                                "category"=>$req_arr["category"],
-                                "product_code"=>$req_arr['product_code'],
-                                "price"=> $req_arr['product_price'],); 
+            if(!empty($product_id))
+            {
+               //echo "update";die();
+               $where=array("_id"=>new MongoId($product_id));
+               $set=array(
+                    '$set'=>array("name"=>$req_arr['product_name'],
+                          "category"=>$req_arr["category"],
+                        "price"=> $req_arr['product_price']));
 
-            $result=$this->products->insert($insert_array); 
-             if($result['err'])
-             {
-                $error_message  = 'There is some problem, please try again';
-                $http_response = 'http_response_bad_request';
-             }
-             else
-             {
-                $http_response = 'http_response_ok';
-                $success_message = 'Add Products successfully';
-             }
+               $result=$this->products->update($where,$set);
+                 if($result['err'])
+                 {
+                    $error_message  = 'There is some problem, please try again';
+                    $http_response = 'http_response_bad_request';
+                 }
+                 else
+                 {
+                    $http_response = 'http_response_ok';
+                    $success_message = 'Update Products successfully';
+                 }
+            }
+
+            else
+            {
+              $insert_array=array('_id'=>new MongoId(),
+                                  "name"=>$req_arr['product_name'],
+                                  "category"=>$req_arr["category"],
+                                  "product_code"=>$req_arr['product_code'],
+                                  "price"=> $req_arr['product_price'],); 
+
+              $result=$this->products->insert($insert_array); 
+               if($result['err'])
+               {
+                  $error_message  = 'There is some problem, please try again';
+                  $http_response = 'http_response_bad_request';
+               }
+               else
+               {
+                  $http_response = 'http_response_ok';
+                  $success_message = 'Add Products successfully';
+               }
+            }
 
         }
        
@@ -281,6 +314,8 @@ if (!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobal
 
 
 function getProductsDetail_post(){
+
+//echo "hiiii";die();
 $error_message = $success_message = $http_response = '';
 $result_arr = array();
 $output_array=array();
@@ -291,69 +326,67 @@ if (!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobal
         }
 else{
 
-      $req_arr = $details_arr = array();
-      $flag = true;
+        $req_arr = $details_arr = array();
+        $flag = true;
 
-      if(empty($this->post('productsID')))
-            {
-                $flag = false;
-                $error_message = "Products Id is required";
-            }else{
-              $req_arr['productsID'] = $this->post('productsID');
-            }
-
-           if($flag){
-
-            $where=array("_id"=>new MongoId($req_arr['productsID']));
-            //print_r($where);die();
-            $products_detail = $this->products->find($where);
-            //pre($products_detail);die();
-
-            if(!empty($products_detail) && count($products_detail)>0)
-             {
-              foreach($products_detail as $row)
-               {
-                    
-                   $temp['productsId'] = $row['_id']->{'$id'};
-                   $temp['name']       = $row['name'];
-                   $temp['product_code']= $row['product_code'];
-                   $temp['price']       = $row['price'];
-                   $temp['category_id'] = $row['category']['id'];
-                   $temp['category_name'] = $row['category']['name'];
-                   array_push($output_array, $temp);
-
-               }
-               //print_r($output_array);die();
-                $result_arr['dataset']= $output_array;
-                //print_r($result_arr);die();
-                $http_response      = 'http_response_ok';
-                $success_message    = 'Single Product';  
- 
-
-           } 
-             //print_r($output_array); die;
-                   
-            
-        else 
+        if(empty($this->post('productsID')))
         {
-            $http_response      = 'http_response_bad_request';
-            $error_message      = 'Something went wrong in API';  
+                  $flag = false;
+                  $error_message = "Products Id is required";
+              }else{
+                $req_arr['productsID'] = $this->post('productsID');
+              }
+
+             if($flag){
+
+                $where=array("_id"=>new MongoId($req_arr['productsID']));
+                //print_r($where);die();
+                $products_detail = $this->products->find($where);
+                //pre($products_detail);die();
+
+                if(!empty($products_detail) && count($products_detail)>0)
+                 {
+                    foreach($products_detail as $row)
+                     {
+                          
+                         $temp['productsId'] = $row['_id']->{'$id'};
+                         $temp['name']       = $row['name'];
+                         $temp['product_code']= $row['product_code'];
+                         $temp['price']       = $row['price'];
+                         $temp['category_id'] = $row['category']['id'];
+                         $temp['category_name'] = $row['category']['name'];
+                         array_push($output_array, $temp);
+
+                     }
+                     //print_r($output_array);die();
+                      $result_arr['dataset']= $output_array;
+                      //print_r($result_arr);die();
+                      $http_response      = 'http_response_ok';
+                      $success_message    = 'Single Product';  
+       
+
+                  } 
+                 //print_r($output_array); die;
+                       
+                
+              else 
+              {
+                  $http_response      = 'http_response_bad_request';
+                  $error_message      = 'Something went wrong in API';  
+              }
+                 //print_r($req_arr);die();
+                $http_response    = 'http_response_ok';
+
         }
-           
-            
-            //print_r($req_arr);die();
-            $http_response    = 'http_response_ok';
-
+        else
+        {
+                    $http_response      = 'http_response_bad_request';
+        }
     }
-    else
-    {
-                $http_response      = 'http_response_bad_request';
-    }
-}
-      json_response($result_arr,$http_response,$error_message,$success_message);
+  json_response($result_arr,$http_response,$error_message,$success_message);
 }
 
-public function updateProductsDetail_post(){
+/*public function updateProductsDetail_post(){
 
  $error_message = $success_message = $http_response ='';
  $result_arr = array();
@@ -447,7 +480,7 @@ if(!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobals
 
  json_response($result_arr, $http_response, $error_message, $success_message);
 
-}
+}*/
 
 
 function deleteProducts_post(){

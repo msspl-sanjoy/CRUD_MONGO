@@ -39,8 +39,8 @@
                   </tr>
                 </thead>
                 <tbody >
-                  <tr ng-repeat="lists in allProducts" id="{{lists.id}}" class="ng-scope" >
-                    <!-- <td>{{allProducts.count}}</td> -->
+                  <tr dir-paginate="lists in allProducts| itemsPerPage:2 " id="{{lists.productsId}}" class="ng-scope" >
+                    <!-- <td>{{lists.productsId}}</td> -->
                     <td>{{lists.name}}</td>
                     <td>{{lists.category_name}}</td>
                     <td>{{lists.product_code}}</td>
@@ -50,10 +50,11 @@
                     </td>
                   </tr>
                   <tr ng-if="allProducts.count==0">
-                            <td align="center" colspan="7" style ="color:red"><b>No record found.</b></td>
+                   <td align="center" colspan="7" style ="color:red"><b>No record found.</b></td>
                   </tr>          
                 </tbody>
               </table>
+              <dir-pagination-controls></dir-pagination-controls>
 
             <!--  <div class="row pagination-footer text-center">
             <dir-pagination-controls direction-links="true" boundary-links="true" on-page-change="getAllProducts(newPageNumber, order_by, order=='asc' ? 'asc' : 'desc')" >

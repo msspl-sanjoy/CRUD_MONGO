@@ -16,8 +16,8 @@ angular
 		    if(status == 200) {
 		    	// Setting a cookie
 		    	//alert("hii");
-		    	/*$cookies.put('admin_user_id', result.raws.data.admin_user_id,{'path': '/'});
-		    	$cookies.put('pass_key', result.raws.data.pass_key,{'path': '/'});*/
+		    	$cookies.put('admin_user_id', result.raws.data.admin_user_id,{'path': '/'});
+		    	$cookies.put('pass_key', result.raws.data.pass_key,{'path': '/'});
 		        $location.path('dashboard/welcome');
 		    }		       
 		}

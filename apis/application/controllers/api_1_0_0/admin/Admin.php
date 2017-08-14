@@ -104,7 +104,7 @@ class Admin extends REST_Controller{
     * @ Modified By              : Subhankar
     * 
     */
-public function checkUserAuthentication_post(){
+    public function checkUserAuthentication_post(){
      //echo "Here";exit();
         $error_message = $success_message = $http_response = '';
         $result_arr = array();
@@ -233,29 +233,52 @@ public function checkUserAuthentication_post(){
                             $session_data = array();
                             foreach ($result as $value) {
                                 $session_data['userid']=$value["_id"];
+                                $active_status=$value["status"];
                                 
                             }
-                            $session_data['ip_address']         = $_SERVER['REMOTE_ADDR'];
+                            if($active_status)
+                            {
+                                $session_data['ip_address']         = $_SERVER['REMOTE_ADDR'];
+                                
+                                //$session_data['gps_location']     = '';
+                                //pre($session_data,1); 
+
+                                $logsessiondata=array(
+                                '_id'=>new MongoId(),
+                                'ipAddress'=>$session_data['ip_address']  ,
+                                'loginTime'=>new MongoDate(), 
+                                'userId'=>$session_data['userid']
+                                );                      
+                                
+                                $insertResult=$this->loginsession->insert($logsessiondata);
+
+                                $where=array("userId"=>new MongoId($session_data['userid']));
+
+                                $last_id=$this->loginsession->find($where);
+
+                                foreach ($last_id as  $value) {
+                                    $cookies['admin_id']=$value['userId'];
+                                    $cookies['pass_key']=$value['_id'];
+                                }
+
+
+                                $encrypted_pass_key = $this->encrypt->encode($cookies['pass_key']);
+                                $encrypted_admin_id = $this->encrypt->encode($cookies['admin_id']);
+                                $req_arr = array();
+                                $user_session_arr['pass_key']       = $encrypted_pass_key;                     
+                                $user_session_arr['admin_user_id']  = $encrypted_admin_id;
                             
-                            //$session_data['gps_location']     = '';
-                            //pre($session_data,1); 
+                                //print_r($user_session_arr);die();
+                                $result_arr = $user_session_arr;
 
-                            $logsessiondata=array(
-                            '_id'=>new MongoId(),
-                            'ipAddress'=>$session_data['ip_address']  ,
-                            'loginTime'=>new MongoDate(), 
-                            'userId'=>$session_data['userid']
-                            );                      
-                            
-                            $insertResult=$this->loginsession->insert($logsessiondata);
+                                $http_response = 'http_response_ok';
+                                $success_message = lang('lbl_success_login_successful');
+                            }
+                            else
+                            {
+                                $http_response = 'http_response_invalid_login';
 
-                            $req_arr = array();
-                            
-
-                            $result_arr = $session_data;
-
-                            $http_response = 'http_response_ok';
-                            $success_message = lang('lbl_success_login_successful');
+                            }
 
                         
 
@@ -310,8 +333,12 @@ public function checkUserAuthentication_post(){
             $req_arr['pass_key']        = $plaintext_pass_key;
             $req_arr['admin_user_id']   = $plaintext_admin_id;
 
-            $affected_rows  = $this->admin->logoutAdmin($req_arr);
-            if($affected_rows > 0){
+            //print_r($req_arr);die();
+
+            //$where = array('_id'=>new MongoId( $req_arr['pass_key']));
+            //print_r($where);die();
+            $affected_rows  = $this->loginsession->remove(array('_id'=>new MongoId($req_arr['pass_key'])));            //echo $affected_rows->count();die();
+            if(!empty($affected_rows) && count($affected_rows)>0){
                 $http_response      = 'http_response_ok';
                 $success_message    = 'Logout successful';  
             } else {

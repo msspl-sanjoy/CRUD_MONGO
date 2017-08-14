@@ -1,14 +1,15 @@
           &nbsp;&nbsp;&nbsp;<a href="#/dashboard/welcome" style="color:red;" ng-if="parentBreadcrumb">
           {{parentBreadcrumb}} --></a>
            <a href="#/dashboard/employee/list" style="color:red;" ng-if="breadcrumb">{{breadcrumb}}</a>
-           <a href="" style="color:red;" ng-if="carousel"> --> {{carousel}}</a>
+           <a href="" style="color:red;" ng-if="carousel">{{carousel}}</a>
          
         <center><ul class="top_right_ul animated slideInLeft">
 
         
-          <li class="dropdown"><a id="dLabel" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="usr_img"><img src="http://localhost/angular_obr/assets/resources/profile/thumb/1.jpg" alt=""></span>Welcome, Admin<i class="fa fa-angle-right left_slider_btn" aria-hidden="true"></i></a>
+          <li ><a id="dLabel" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="usr_img"><img src="http://localhost/angular_obr/assets/resources/profile/thumb/1.jpg" alt=""></span>Welcome, Admin<i class="fa fa-angle-right left_slider_btn" aria-hidden="true"></i></a>
            
           </li>
+          <li><a href="javascript:void(0);" ng-click="logout()">logout</li>
           
         </ul>
         </center>
