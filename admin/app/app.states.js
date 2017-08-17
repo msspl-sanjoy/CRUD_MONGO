@@ -29,10 +29,10 @@ angular
             } else {
                 if(toState.parent == 'home' && toState.url == '/login'){
                     $rootScope.bodyClass = 'admin-body';
-                    //helper.checkUserAuthentication('home');
+                    helper.checkUserAuthentication('home');
                 }else{
                     $rootScope.bodyClass = 'agent-body';
-                    //helper.checkUserAuthentication();
+                    helper.checkUserAuthentication();
                 }
             }
         })

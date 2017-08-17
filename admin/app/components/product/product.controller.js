@@ -27,6 +27,8 @@ angular
 	        var getproductsParam = 
 	        {
 	        	
+	            'pass_key' 			: $cookies.get('pass_key'),
+	        	'admin_user_id'		: $cookies.get('admin_user_id'),
 	            'searchByName'		: $scope.searchByName,
 	            'order_by'			: $scope.order_by,
 	            'order'				: $scope.order,
@@ -34,7 +36,8 @@ angular
 	            'page_size'			: $scope.itemsPerPage
 	        };
 
-	        //alert(getproductsParam.searchByName);
+	        //alert(getproductsParam.pass_key+',,,'+getproductsParam.admin_user_id);
+
 			ajaxService.ApiCall(getproductsParam, CONFIG.ApiUrl+'products/getAllProducts', $scope.getAllProductsSuccess, $scope.getAllProductsError, 'post');
 		}
 
@@ -102,6 +105,8 @@ angular
 		$scope.doaddproducts = function(productsData) 
 		{ 
 			var productsParam=productsData;
+			productsData.pass_key=$cookies.get('pass_key');
+			productsData.admin_user_id=$cookies.get('admin_user_id');
 			ajaxService.ApiCall(productsParam, CONFIG.ApiUrl+'products/addProducts', $scope.addProductsSuccess, $scope.addProductsError, 'post');
 		}
 
@@ -132,7 +137,9 @@ angular
 		    //alert(productsId);
 		    $scope.productsIndex = index;
 			var productsParam = {
-				'productsID' 	: productsId
+				'pass_key' 			: $cookies.get('pass_key'),
+	        	'admin_user_id'		: $cookies.get('admin_user_id'),
+				'productsID' 	    : productsId
 			    
 			};
 			ajaxService.ApiCall(productsParam, CONFIG.ApiUrl+'products/deleteProducts', $scope.deleteProductsSuccess, $scope.deleteProductsError, 'post');
@@ -181,7 +188,10 @@ angular
 			//alert("here");
 			//alert($stateParams.productsID);
 			//var productsID    = $stateParams.productsID ;
-			var productsParam = {'productsID' : $scope.productsID};
+			var productsParam = {
+				'pass_key' 			: $cookies.get('pass_key'),
+	        	'admin_user_id'		: $cookies.get('admin_user_id'),
+				'productsID'        : $scope.productsID};
 			//	alert(productsParam.productsID);
 			ajaxService.ApiCall(productsParam, CONFIG.ApiUrl+'products/getProductsDetail', $scope.getProductsDetailSuccess, $scope.getProductsDetailError, 'post');
 		}
@@ -222,10 +232,11 @@ angular
 
         $scope.updateProductsDetail= function(productsDetail){
         	//alert(productsDetail.id);
-
- ajaxService.ApiCall(productsDetail, CONFIG.ApiUrl+'products/updateProductsDetail',
- $scope.updateProductsDetailSuccess,$scope.updateProductsDetailError, 'post');
-}
+        productsDetail.pass_key=$cookies.get('pass_key');
+		productsDetail.admin_user_id=$cookies.get('admin_user_id');
+ 		ajaxService.ApiCall(productsDetail, CONFIG.ApiUrl+'products/updateProductsDetail',
+ 		$scope.updateProductsDetailSuccess,$scope.updateProductsDetailError, 'post');
+        }
 
 //updateDegreeDetail success function
 		$scope.updateProductsDetailSuccess = function(result,status) 

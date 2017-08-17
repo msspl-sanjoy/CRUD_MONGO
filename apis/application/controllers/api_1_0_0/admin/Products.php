@@ -116,7 +116,21 @@ function getAllProducts_post(){
         //echo $this->post('pass_key',true); exit();
         
 
-         if(empty($this->post('page',true))){
+        if(empty($this->post('pass_key',true))){
+        $flag = false;
+        $error_message = "pass key is required";
+        }else{
+          $req_arr['pass_key'] = $this->post('pass_key',true);
+
+         }
+        if(empty($this->post('admin_user_id',true))){
+            $flag = false;
+            $error_message = "admin user id is required";
+        }else{
+            $req_arr['admin_user_id'] = $this->post('admin_user_id',true);
+        }
+
+        /* if(empty($this->post('page',true))){
             $flag = false;
             $error_message = "page is required";
          }else{
@@ -132,7 +146,7 @@ function getAllProducts_post(){
         else
         {
             $req_arr['page_size']  = $this->post('page_size', true);
-        }
+        }*/
 
 
         $req_arr['order']           = $this->input->post('order', true);
@@ -204,6 +218,19 @@ if (!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobal
         $flag = true;
         //echo $this->post('id',true); exit();
 
+        if(empty($this->post('pass_key',true))){
+        $flag = false;
+        $error_message = "pass key is required";
+        }else{
+          $req_arr['pass_key'] = $this->post('pass_key',true);
+
+         }
+        if(empty($this->post('admin_user_id',true))){
+            $flag = false;
+            $error_message = "admin user id is required";
+        }else{
+            $req_arr['admin_user_id'] = $this->post('admin_user_id',true);
+        }
        
         if(empty($this->post('name',true))){
           $flag = false;
@@ -328,6 +355,20 @@ else{
 
         $req_arr = $details_arr = array();
         $flag = true;
+
+        if(empty($this->post('pass_key',true))){
+        $flag = false;
+        $error_message = "pass key is required";
+        }else{
+          $req_arr['pass_key'] = $this->post('pass_key',true);
+
+         }
+        if(empty($this->post('admin_user_id',true))){
+            $flag = false;
+            $error_message = "admin user id is required";
+        }else{
+            $req_arr['admin_user_id'] = $this->post('admin_user_id',true);
+        }
 
         if(empty($this->post('productsID')))
         {
@@ -496,6 +537,21 @@ function deleteProducts_post(){
     $req_arr = $details_arr = array();
     $flag = true;
 
+    if(empty($this->post('pass_key',true))){
+        $flag = false;
+        $error_message = "pass key is required";
+        }
+    else{
+      $req_arr['pass_key'] = $this->post('pass_key',true);
+
+     }
+    if(empty($this->post('admin_user_id',true))){
+        $flag = false;
+        $error_message = "admin user id is required";
+    }else{
+        $req_arr['admin_user_id'] = $this->post('admin_user_id',true);
+    }
+
     if(empty($this->post('productsID',true))){
         $flag = false;
         $error_message = 'product id is required';
@@ -515,7 +571,7 @@ function deleteProducts_post(){
           $this->products->remove($where);
           
            //$result_arr['dataset'] = $this->employee->getAllEmployee($req_arr);
-           $result_arr = array();
+           $result_arr = $req_arr;
            $http_response = 'http_response_ok';
            $success_message = 'Product delete successfully';
               
@@ -536,9 +592,6 @@ function deleteProducts_post(){
 
 json_response($result_arr, $http_response, $error_message, $success_message);
 }
-
-
-
 
 /****************************end of admin controlller**********************/
 

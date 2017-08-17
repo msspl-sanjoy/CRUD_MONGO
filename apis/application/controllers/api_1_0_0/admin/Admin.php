@@ -123,12 +123,18 @@ class Admin extends REST_Controller{
 
             $req_arr['pass_key']        = $plaintext_pass_key;
             $req_arr['admin_user_id']   = $plaintext_admin_id;
-            $check_session  = $this->admin->checkSessionExist($req_arr);
+            //$check_session  = $this->admin->checkSessionExist($req_arr);
+            //print_r($req_arr);die();
+            $where=array("_id"=>new MongoId($req_arr['pass_key']));
+            $check_session = $this->loginsession->find($req_arr);
             //pre($check_session,1);
-
+            //echo count($check_session);die();
             if(!empty($check_session) && count($check_session) > 0){
+                $result_arr = $check_session;
+                $http_response = 'http_response_ok';
+                $success_message = 'Already loggedin';  
 
-                if($check_session['admin_level'] > 1){
+               /* if($check_session['admin_level'] > 1){
 
                     $accessable_modules_arr = array(
                         'welcome',
@@ -136,7 +142,7 @@ class Admin extends REST_Controller{
                         'profile.changepassword',
                         'users.list',
                         'users.basic',
-                        'users.education',
+                        'users.education',  
                         'users.education-edit',
                         'users.kyc',
                         'users.kyc-edit',
@@ -163,7 +169,7 @@ class Admin extends REST_Controller{
                     $result_arr = $check_session;
                     $http_response = 'http_response_ok';
                     $success_message = 'Already loggedin';                    
-                }
+                }*/
 
             }else{
                 $http_response = 'http_response_invalid_login';

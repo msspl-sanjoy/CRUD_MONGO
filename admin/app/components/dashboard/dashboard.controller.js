@@ -58,10 +58,14 @@ angular
 
                 // Removing a cookie
                 //alert("hello");
-                $cookies.remove('admin_user_id');
-                $cookies.remove('pass_key');
+                // $cookies.remove('admin_user_id',{'path': '/'});
+                // $cookies.remove('pass_key',{'path': '/'});
+
+                $cookies.put('admin_user_id', '',{'path': '/'});
+		    	$cookies.put('pass_key', '',{'path': '/'});
 
                 //console.log($cookies.getAll());
+                //alert($cookies.get('admin_user_id'));
 
                 $scope.successMessage = result.raws.success_message;
                 //$scope.errorMessage = result.raws.error_message;

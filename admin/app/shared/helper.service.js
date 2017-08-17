@@ -31,6 +31,7 @@ angular.module('helperServices', [])
             
             //User Authentication success function
     		function userAuthenticationSuccess(result){
+                //alert('hello');
                 $rootScope.userDetails = result.raws.data;
                 if(type == 'home'){
                     $location.path('dashboard/welcome');
@@ -40,6 +41,7 @@ angular.module('helperServices', [])
             //User Authentication error function
             function userAuthenticationError(result){
                 //$rootScope.errorMessage = result.raws.error_message;
+                //alert('hii');
                 $timeout(function() {
                     $rootScope.errorMessage = '';
                 }, CONFIG.TimeOut);
