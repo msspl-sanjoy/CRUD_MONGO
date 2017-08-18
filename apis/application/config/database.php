@@ -72,7 +72,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-
 $db['default'] = array(
 /*	'dsn'	   => 'mysql:host=mpokket-staging.cnbns2hrinms.us-west-2.rds.amazonaws.com;dbname=stagingmpokket;username=finzo;password=xZ4_~F(Xeb',
 	'hostname' => 'mpokket-staging.cnbns2hrinms.us-west-2.rds.amazonaws.com',
@@ -84,7 +83,7 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => 'Mass4Pass',
-	'database' => 'angular_obr',
+	'database' => '',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -100,3 +99,5 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+

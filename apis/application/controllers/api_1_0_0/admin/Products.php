@@ -267,7 +267,7 @@ if (!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobal
             $flag = false;
             $error_message = "Product Price is required";
        }else{
-        $req_arr['product_price'] = $this->post('price',true);
+        $req_arr['product_price'] = new MongoInt32($this->post('price',true));
        }
        
        $req_arr['product_code']='PR'.rand(000,999);
@@ -374,49 +374,49 @@ else{
         {
                   $flag = false;
                   $error_message = "Products Id is required";
-              }else{
-                $req_arr['productsID'] = $this->post('productsID');
-              }
+        }else{
+          $req_arr['productsID'] = $this->post('productsID');
+        }
 
-             if($flag){
+       if($flag){
 
-                $where=array("_id"=>new MongoId($req_arr['productsID']));
-                //print_r($where);die();
-                $products_detail = $this->products->find($where);
-                //pre($products_detail);die();
+          $where=array("_id"=>new MongoId($req_arr['productsID']));
+          //print_r($where);die();
+          $products_detail = $this->products->find($where);
+          //pre($products_detail);die();
 
-                if(!empty($products_detail) && count($products_detail)>0)
-                 {
-                    foreach($products_detail as $row)
-                     {
-                          
-                         $temp['productsId'] = $row['_id']->{'$id'};
-                         $temp['name']       = $row['name'];
-                         $temp['product_code']= $row['product_code'];
-                         $temp['price']       = $row['price'];
-                         $temp['category_id'] = $row['category']['id'];
-                         $temp['category_name'] = $row['category']['name'];
-                         array_push($output_array, $temp);
+          if(!empty($products_detail) && count($products_detail)>0)
+           {
+              foreach($products_detail as $row)
+               {
+                    
+                   $temp['productsId'] = $row['_id']->{'$id'};
+                   $temp['name']       = $row['name'];
+                   $temp['product_code']= $row['product_code'];
+                   $temp['price']       = $row['price'];
+                   $temp['category_id'] = $row['category']['id'];
+                   $temp['category_name'] = $row['category']['name'];
+                   array_push($output_array, $temp);
 
-                     }
-                     //print_r($output_array);die();
-                      $result_arr['dataset']= $output_array;
-                      //print_r($result_arr);die();
-                      $http_response      = 'http_response_ok';
-                      $success_message    = 'Single Product';  
-       
+               }
+               //print_r($output_array);die();
+                $result_arr['dataset']= $output_array;
+                //print_r($result_arr);die();
+                $http_response      = 'http_response_ok';
+                $success_message    = 'Single Product';  
+ 
 
-                  } 
-                 //print_r($output_array); die;
-                       
-                
-              else 
-              {
-                  $http_response      = 'http_response_bad_request';
-                  $error_message      = 'Something went wrong in API';  
-              }
-                 //print_r($req_arr);die();
-                $http_response    = 'http_response_ok';
+            } 
+           //print_r($output_array); die;
+                 
+          
+        else 
+        {
+            $http_response      = 'http_response_bad_request';
+            $error_message      = 'Something went wrong in API';  
+        }
+           //print_r($req_arr);die();
+          //$http_response    = 'http_response_ok';
 
         }
         else
@@ -530,10 +530,10 @@ function deleteProducts_post(){
    $req_arr = array();
    //echo "hii";die();
    if(!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobals()))
-  {
+   {
     $error_message = 'Invalid Token';
     $http_response = 'http_response_unauthorized';
- }else{
+   }else{
     $req_arr = $details_arr = array();
     $flag = true;
 
@@ -593,6 +593,6 @@ function deleteProducts_post(){
 json_response($result_arr, $http_response, $error_message, $success_message);
 }
 
-/****************************end of admin controlller**********************/
+/****************************end of products controlller**********************/
 
 }
