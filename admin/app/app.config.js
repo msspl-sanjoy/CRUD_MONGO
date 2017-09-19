@@ -33,7 +33,7 @@ angular
         AssetsUrl       : 'http://'+(location.hostname)+'/CRUD_MONGO/admin/',
         ApiUrl          : 'http://'+(location.hostname)+'/CRUD_MONGO/apis/api_1_0_0/admin/',
         TimeOut         : '2000',
-        itemsPerPage    : '5'
+        itemsPerPage    : '2'
     })
 
     .constant('oauth',{

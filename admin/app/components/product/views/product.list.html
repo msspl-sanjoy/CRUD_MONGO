@@ -39,7 +39,7 @@
                   </tr>
                 </thead>
                 <tbody >
-                  <tr dir-paginate="lists in allProducts| itemsPerPage:2 " id="{{lists.productsId}}" class="ng-scope" >
+                  <tr dir-paginate="lists in allProducts| itemsPerPage:itemsPerPage " id="{{lists.productsId}}" class="ng-scope" >
                     <!-- <td>{{lists.productsId}}</td> -->
                     <td>{{lists.name}}</td>
                     <td>{{lists.category_name}}</td>
@@ -49,17 +49,17 @@
                     <a href="#/dashboard/product/update-product/{{lists.productsId}}" class="eye_img_tbl">update</a>
                     </td>
                   </tr>
-                  <tr ng-if="allProducts.count==0">
+                  <tr ng-if="allProducts.length==0">
                    <td align="center" colspan="7" style ="color:red"><b>No record found.</b></td>
                   </tr>          
                 </tbody>
               </table>
-              <dir-pagination-controls></dir-pagination-controls>
-
-            <!--  <div class="row pagination-footer text-center">
+<!--               <dir-pagination-controls></dir-pagination-controls>
+ -->
+              <div class="row pagination-footer text-center">
             <dir-pagination-controls direction-links="true" boundary-links="true" on-page-change="getAllProducts(newPageNumber, order_by, order=='asc' ? 'asc' : 'desc')" >
             </dir-pagination-controls>
-        </div>-->
+        </div>
     </div>
 
     </div>

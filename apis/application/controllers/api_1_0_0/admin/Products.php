@@ -98,6 +98,7 @@ class Products extends REST_Controller{
 
 
 function getAllProducts_post(){
+  //pre($this->post(),1);
  
  $error_message = $success_message = $http_response = '';
  $result_arr = array();
@@ -130,7 +131,7 @@ function getAllProducts_post(){
             $req_arr['admin_user_id'] = $this->post('admin_user_id',true);
         }
 
-        /* if(empty($this->post('page',true))){
+         if(empty($this->post('page',true))){
             $flag = false;
             $error_message = "page is required";
          }else{
@@ -146,7 +147,7 @@ function getAllProducts_post(){
         else
         {
             $req_arr['page_size']  = $this->post('page_size', true);
-        }*/
+        }
 
 
         $req_arr['order']           = $this->input->post('order', true);

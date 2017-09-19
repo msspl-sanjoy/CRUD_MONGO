@@ -3,8 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*
 * --------------------------------------------------------------------------
 * @ Controller Name          : All the admin related api call from admin controller
-* @ Added Date               : 06-04-2016
-* @ Added By                 : Subhankar
+* @ Added Date               : 22/06/2017
+* @ Added By                 : Sanjoy
 * -----------------------------------------------------------------
 * @ Description              : This is the admin index page
 * -----------------------------------------------------------------
@@ -71,7 +71,7 @@ class Admin extends REST_Controller{
         //$this->load->library('calculation');
 
        
-        $this->push_type = 'P';
+        //$this->push_type = 'P';
         //$this->load->library('mpdf');
 
          OAuth2\Autoloader::register();
