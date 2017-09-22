@@ -4,14 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 * --------------------------------------------------------------------------
 * @ Controller Name          : All the Employee related api call from employee controller
 * @ Added Date               : 28-05-2017
-* @ Added By                 : Vishal
+* @ Added By                 : Sanjoy
 * -----------------------------------------------------------------
 * @ Description              : This is the Employee index page
 * -----------------------------------------------------------------
 * @ return                   : array
 * -----------------------------------------------------------------
 * @ Modified Date            : 28-05-2017
-* @ Modified By              : Vishal
+* @ Modified By              : Sanjoy
 * 
 */
 

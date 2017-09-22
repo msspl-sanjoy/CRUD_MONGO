@@ -158,6 +158,51 @@ angular
             }
           
         })
+        .state("ed",{
+          parent:'dashboard',
+          url:'/ed',
+          templateUrl:'app/components/ed/views/ed.index.view.html'
+
+         })
+
+        .state("ed.list",{
+              url: '/list',
+              templateUrl:'app/components/ed/views/ed.list.html',
+              controller:'edController',
+              onEnter: function($state,$rootScope){ // define value and load the default variable in our page
+              $rootScope.parentBreadcrumb = 'Dashboard';
+              $rootScope.breadcrumb       = 'Ed list';
+              $rootScope.carousel         = '';
+              //$rootScope.leftMenu         = 'list'; 
+            }
+  
+
+          })
+        .state("ed.add-ed",{
+              url:'/add-ed',
+              templateUrl:'app/components/ed/views/ed.add.html',
+              controller: 'edController',
+              onEnter: function($state,$rootScope){ // define value and load the default variable in our page
+                $rootScope.parentBreadcrumb = 'Dashboard';
+                $rootScope.breadcrumb       = 'Ed';
+                $rootScope.carousel         = 'Add Ed';
+                //$rootScope.leftMenu         = 'add'; 
+              }
+        })
+
+        .state("ed.update-ed",{
+          url:'/update-ed/:edID',
+          templateUrl:'app/components/ed/views/update.ed.html',
+          controller: 'edController',
+          onEnter: function($state,$rootScope){ // define value and load the default variable in our page
+            $rootScope.parentBreadcrumb = 'Dashboard';
+            $rootScope.breadcrumb       = 'Ed';
+            $rootScope.carousel         = 'Update Ed';
+            
+            //$rootScope.leftMenu         = 'edit'; 
+            }
+          
+        })
         
 }])
 

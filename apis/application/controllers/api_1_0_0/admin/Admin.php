@@ -10,8 +10,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 * -----------------------------------------------------------------
 * @ return                   : array
 * -----------------------------------------------------------------
-* @ Modified Date            : 06-04-2016
-* @ Modified By              : Subhankar
+* @ Modified Date            : 06-07-2017
+* @ Modified By              : Sanjoy
 * 
 */
 
@@ -58,12 +58,12 @@ class Admin extends REST_Controller{
 
         $mongo = new MongoClient();
         $this->mongodb = $mongo->selectDB('test');
-        $this->user = $this->mongodb->user;
+        $this->admin = $this->mongodb->admin;
         $this->loginsession = $this->mongodb->loginsession;
         /*$sitemode= $this->config->item('site_mode');
         $this->path_detail=$this->config->item($sitemode);*/      
         $this->tables = $this->config->item('tables'); 
-        $this->load->model('api_' . $this->config->item('test_api_ver') . '/admin/admin_model', 'admin');
+        //$this->load->model('api_' . $this->config->item('test_api_ver') . '/admin/admin_model', 'admin');
         $this->load->library('form_validation');
         $this->load->library('email');
         $this->load->library('encrypt');
@@ -93,15 +93,15 @@ class Admin extends REST_Controller{
     /*
     * --------------------------------------------------------------------------
     * @ Function Name            : checkUserAuthentication()
-    * @ Added Date               : 14-04-2016
-    * @ Added By                 : Subhankar
+    * @ Added Date               : 14-07-2017
+    * @ Added By                 : Sanjoy
     * -----------------------------------------------------------------
     * @ Description              : check user authentication
     * -----------------------------------------------------------------
     * @ return                   : array
     * -----------------------------------------------------------------
     * @ Modified Date            : 14-04-2016
-    * @ Modified By              : Subhankar
+    * @ Modified By              : Sanjoy
     * 
     */
     public function checkUserAuthentication_post(){
@@ -183,15 +183,15 @@ class Admin extends REST_Controller{
     /*
     * --------------------------------------------------------------------------
     * @ Function Name            : logIn()
-    * @ Added Date               : 06-04-2016
-    * @ Added By                 : Subhankar
+    * @ Added Date               : 06-07-2017
+    * @ Added By                 : Sanjoy
     * -----------------------------------------------------------------
     * @ Description              : This is the admin log in page
     * -----------------------------------------------------------------
     * @ return                   : array
     * -----------------------------------------------------------------
-    * @ Modified Date            : 06-04-2016
-    * @ Modified By              : Subhankar
+    * @ Modified Date            : 06-07-2017
+    * @ Modified By              : Sanjoy
     * 
     */
     public function logIn_post(){
@@ -232,7 +232,7 @@ class Admin extends REST_Controller{
                 $data['password'] = $this->post('password', true);*/
 
                 if(!empty($req_arr['username']) && !empty($req_arr['password'])){
-                    $result = $this->user->find($req_arr);
+                    $result = $this->admin->find($req_arr);
                     $admin_count=$result->count();
                     if ($admin_count>0) {
                                                   
@@ -309,15 +309,15 @@ class Admin extends REST_Controller{
     /*
     * --------------------------------------------------------------------------
     * @ Function Name            : logOut()
-    * @ Added Date               : 14-04-2016
-    * @ Added By                 : Subhankar
+    * @ Added Date               : 14-07-2016
+    * @ Added By                 : Sanjoy
     * -----------------------------------------------------------------
     * @ Description              : log out admin user
     * -----------------------------------------------------------------
     * @ return                   : array
     * -----------------------------------------------------------------
-    * @ Modified Date            : 14-04-2016
-    * @ Modified By              : Subhankar
+    * @ Modified Date            : 14-07-2016
+    * @ Modified By              : Sanjoy
     * 
     */
     public function logOut_post(){
@@ -359,15 +359,15 @@ class Admin extends REST_Controller{
     /*
     * --------------------------------------------------------------------------
     * @ Function Name            : forgetPassword()
-    * @ Added Date               : 14-04-2016
-    * @ Added By                 : Subhankar
+    * @ Added Date               : 14-07-2016
+    * @ Added By                 : Sanjoy
     * -----------------------------------------------------------------
     * @ Description              : admin forget password
     * -----------------------------------------------------------------
     * @ return                   : array
     * -----------------------------------------------------------------
-    * @ Modified Date            : 14-04-2016
-    * @ Modified By              : Subhankar
+    * @ Modified Date            : 14-07-2016
+    * @ Modified By              : Sanjoy
     * 
     */
     public function forgetPassword_post(){
@@ -469,15 +469,15 @@ class Admin extends REST_Controller{
     /*
     * --------------------------------------------------------------------------
     * @ Function Name            : verifyPasscode()
-    * @ Added Date               : 14-04-2016
-    * @ Added By                 : Subhankar
+    * @ Added Date               : 14-07-2016
+    * @ Added By                 : Sanjoy
     * -----------------------------------------------------------------
     * @ Description              : admin forget password
     * -----------------------------------------------------------------
     * @ return                   : array
     * -----------------------------------------------------------------
-    * @ Modified Date            : 14-04-2016
-    * @ Modified By              : Subhankar
+    * @ Modified Date            : 14-07-2017
+    * @ Modified By              : Sanjoy
     * 
     */
     public function verifyPasscode_post(){
@@ -544,15 +544,15 @@ class Admin extends REST_Controller{
     /*
     * --------------------------------------------------------------------------
     * @ Function Name            : resetPassword()
-    * @ Added Date               : 14-04-2016
-    * @ Added By                 : Subhankar
+    * @ Added Date               : 14-07-2016
+    * @ Added By                 : Sanjoy
     * -----------------------------------------------------------------
     * @ Description              : admin forget password
     * -----------------------------------------------------------------
     * @ return                   : array
     * -----------------------------------------------------------------
-    * @ Modified Date            : 14-04-2016
-    * @ Modified By              : Subhankar
+    * @ Modified Date            : 14-07-2016
+    * @ Modified By              : Sanjoy
     * 
     */
     public function resetPassword_post()
@@ -664,330 +664,115 @@ class Admin extends REST_Controller{
 
 
   function ChangePassword_post(){
-  $error_message = $success_message = $http_response = $new_password = '';
-  $req_arr = array();
-  if (!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobals())) 
-        {
-
-            $error_message = 'Invalid Token';
-            $http_response = 'http_response_unauthorized';
-        
-   }else{
+      $error_message = $success_message = $http_response = $new_password = '';
       $req_arr = array();
-      $flag = true;
+      if (!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobals())) 
+            {
+
+                $error_message = 'Invalid Token';
+                $http_response = 'http_response_unauthorized';
+            
+       }else{
+          $req_arr = array();
+          $flag = true;
 
 
-    if(empty($this->post('admin_user_id',true))){
-    $flag = false;
-    $error_message = 'admin user id is required';
+            if(empty($this->post('admin_user_id',true))){
+            $flag = false;
+            $error_message = 'admin user id is required';
 
-    }else{
-        $req_arr['admin_user_id'] = $this->post('admin_user_id',true);
-    }
+            }else{
+                $req_arr['admin_user_id'] = $this->post('admin_user_id',true);
+            }
 
- if(empty($this->post('pass_key',true))){
-    $flag = false;
-    $error_message = 'pass key is required';
+            if(empty($this->post('pass_key',true))){
+            $flag = false;
+            $error_message = 'pass key is required';
 
-    }else{
-        $req_arr['pass_key'] = $this->post('pass_key',true);
-    }
-
-
-      if(empty($this->post('old_password',true))){
-        $flag = false;
-        $error_message = 'old password is required';
-
-    }else{
-        $req_arr['old_password'] = $this->post('old_password',true);
-    }
-
-   if(empty($this->post('new_password',true))){
-     $falg = false;
-     $error_message = 'new password is required';
-
-   }else{
-
-    $req_arr['new_password'] = $this->post('new_password',true);
-
-   }
-
-   if(empty($this->post('confirm_password',true))){
-    $flag = false;
-    $error_message = 'confirm password is required';
-   }else{
-    $req_arr['confirm_password'] = $this->post('confirm_password',true);
-
-   }
-
-   if($flag){
-   $req_arr1 = array(
-          'pass_key'      => $this->encrypt->decode($req_arr['pass_key']),
-          'admin_user_id' => $this->encrypt->decode($req_arr['admin_user_id']),
-        );
-
-    //print_r($req_arr1);
-    $check_session  = $this->admin->checkSessionExist($req_arr1);
-
-   if(!empty($check_session) && count($check_session) > 0){
-   
-   if($req_arr['new_password'] == $req_arr['confirm_password']){
-
-    $db_admin_pass = $this->admin->chk_admin_pass($req_arr,$req_arr1);
-
-    if(md5($req_arr['old_password']) == $db_admin_pass['login_pwd']){
-
-        $data = array(
-         'login_pwd'=> md5($req_arr['confirm_password'])
-            );
-
-    $this->admin->chagePassword($req_arr,$req_arr1,$data);
-    $req_arr = array();
-    $success_message = 'password change successfully';
-    $http_response  = 'http_response_ok';
-  }else{
-
-   $error_message = 'Old password not match';
-   $http_response = 'http_response_unauthorized';
+            }else{
+                $req_arr['pass_key'] = $this->post('pass_key',true);
+            }
 
 
-    }
-  
+            if(empty($this->post('old_password',true))){
+                $flag = false;
+                $error_message = 'old password is required';
 
-   }else{
-   $flag = false;
-   $error_message = 'New password and confirm password Not Match';
-   $http_response = 'http_response_unauthorized';
+            }else{
+                $req_arr['old_password'] = $this->post('old_password',true);
+            }
 
-   }
+           if(empty($this->post('new_password',true))){
+             $falg = false;
+             $error_message = 'new password is required';
 
-}else{
+           }else{
 
-  $http_response  = 'http_response_invalid_login';
-  $error_message  = 'User is invalid';
-}
+            $req_arr['new_password'] = $this->post('new_password',true);
 
-   }else{
-    $http_response = 'http_response_unauthorized';
-   }
+           }
 
- }        
- //print_r($this->post());
- json_response($req_arr, $http_response, $error_message, $success_message);
-    }
+           if(empty($this->post('confirm_password',true))){
+            $flag = false;
+            $error_message = 'confirm password is required';
+           }else{
+            $req_arr['confirm_password'] = $this->post('confirm_password',true);
 
+           }
 
-function getAdminProfile_post(){
- $error_message = $success_message = $http_response = '';
-        $result_arr = array();
+           if($flag){
+            $req_arr1 = array(
+                  'pass_key'      => $this->encrypt->decode($req_arr['pass_key']),
+                  'admin_user_id' => $this->encrypt->decode($req_arr['admin_user_id']),
+                );
 
-        if (!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobals())) {
-
-            $error_message = 'Invalid Token';
-            $http_response = 'http_response_unauthorized';
-        
-        } else {
-
-            $req_arr1 = array();
-            $plaintext_pass_key = $this->encrypt->decode($this->input->post('pass_key', TRUE));
-            $plaintext_admin_id = $this->encrypt->decode($this->input->post('admin_user_id', TRUE));
-
-            $req_arr1['pass_key']        = $plaintext_pass_key;
-            $req_arr1['admin_user_id']   = $plaintext_admin_id;
+            //print_r($req_arr1);
             $check_session  = $this->admin->checkSessionExist($req_arr1);
 
-
             if(!empty($check_session) && count($check_session) > 0){
+       
+                if($req_arr['new_password'] == $req_arr['confirm_password']){
 
-               $req_arr = $details_arr = array();
-                $plaintext_admin_id = $this->encrypt->decode($this->post('admin_user_id', TRUE));
-                $req_arr['admin_user_id']   = $plaintext_admin_id;
+                    $db_admin_pass = $this->admin->chk_admin_pass($req_arr,$req_arr1);
 
-               $details_arr  = $this->admin->getAdminDetails($req_arr);
-            if(!empty($details_arr) && count($details_arr) > 0){
+                        if(md5($req_arr['old_password']) == $db_admin_pass['login_pwd']){
 
-        $admin_img           = array();
-        if($details_arr['file_extension']!=''){
-         $admin_img['profile_image_url'] = base_url().'assets/resources/profile/'.$details_arr['id'].'.'.$details_arr['file_extension'];   
+                            $data = array(
+                             'login_pwd'=> md5($req_arr['confirm_password'])
+                                );
 
-        }else{
-            $admin_img['profile_image_url'] = '';
+                        $this->admin->chagePassword($req_arr,$req_arr1,$data);
+                        $req_arr = array();
+                        $success_message = 'password change successfully';
+                        $http_response  = 'http_response_ok';
+                      }else{
 
-        }
+                       $error_message = 'Old password not match';
+                       $http_response = 'http_response_unauthorized';
+                        }
+      
 
-        $details_arr['profile_image_url'] = $admin_img;
-                    $result_arr         = $details_arr;
-                    $http_response      = 'http_response_ok';
-                    $success_message    = 'Admin details';  
-                } else {
-                    $http_response      = 'http_response_bad_request';
-                    $error_message      = 'User is not valid';  
-                }
-            } else {
-                $http_response  = 'http_response_invalid_login';
-                $error_message  = 'User is invalid';
+               }else{
+               $flag = false;
+               $error_message = 'New password and confirm password Not Match';
+               $http_response = 'http_response_unauthorized';
+
+               }
+
+            }else{
+
+              $http_response  = 'http_response_invalid_login';
+              $error_message  = 'User is invalid';
             }
-        }
-        json_response($result_arr, $http_response, $error_message, $success_message);   
-}
-
-
-public function doUpdateProfile_post(){
-$error_message = $success_message = $http_response ='';
- $result_arr = array();
- $details_arr = array();
-
-if(!$this->oauth_server->verifyResourceRequest(OAuth2\Request::createFromGlobals()))
-  {
-    $error_message = 'Invalid Token';
-    $http_response = 'http_response_unauthorized';
- }else{
-   $flag = true;
- if(empty($this->post('id',true))){
-   $flag = false;
-   $error_message = 'admin id is required';
- } else{
-    $result_arr['id'] = $this->post('id',true);
- }
-
- if(empty($this->post('f_name',true))){
-    $flag = false;
-    $error_message = 'first name required';
-
- }else{
-    $result_arr['f_name'] = $this->post('f_name',true);
-
- }
-
- if(empty($this->post('l_name',true))){
-    $flag = false;
-    $error_message = 'last name required';
- }else{
-    $result_arr['l_name'] = $this->post('l_name',true);
- }
-
-  //print_r($_FILES['file']['name']);
-   //print_r($_FILES['profile_image']['name']);
-
- if($flag){
- if(isset($_FILES['file']['name']) && $_FILES['file']['size'] > 0){
-  $array1 = explode('.', $_FILES['file']['name']);
- $extension1 = end($array1);
- $file_ex = array("png","jpg", "jpeg");
- if(in_array($extension1, $file_ex)){
-
-
-$table = $this->tables['tbl_admins'];
-$where = array('id',$result_arr['id']);
-
-$old_admin_extentation = $this->common->select_one_row($table,$where,'file_extension');
-
- $file_name1  = $result_arr['id'] . "." . $old_admin_extentation['file_extension'];
-$img_thumb1 = $this->config->item('upload_file_url').'profile/thumb/'.$file_name1;
-    $img1 = $this->config->item('upload_file_url').'profile/'.$file_name1;
-    if(file_exists($img_thumb1)){
-        unlink($img_thumb1);
-    }
-
-    if(file_exists($img1)){
-        unlink($img1);
-      }
-$this->load->library('upload');
-
- $image_info  = getimagesize($_FILES['file']['tmp_name']);
-                 $image_width     = $image_info[0];
-                $image_height    = $image_info[1];
-                $original_width  = $image_width;
-                $original_height = $image_height;
-                $new_width       = 300;
-                $new_height      = 100;
-                $thumb_width             = $new_width;
-                $thumb_height            = $new_height;
-                $array                   = explode('.', $_FILES['file']['name']);
-                $extension               = end($array);
-                $file_name               = $result_arr['id'] . "." . $extension;
-                $config['upload_path']   = $this->config->item('upload_file_url').'profile/';
-                $config['allowed_types'] = 'png|jpg|jpeg';
-                $config['overwrite'] = true;
-                $config['file_name'] = $file_name;
-                $this->upload->initialize($config);
-                
-
-                if($this->upload->do_upload('file')) {
-                $img_thumb = $this->config->item('upload_file_url').'profile/thumb/'.$file_name;
-                $img = $this->config->item('upload_file_url').'profile/'.$file_name;
-                    
- $upload_data_details = $this->upload->data();
-                    $image    = $file_name;
-                    $this->load->library('image_lib');
-                    $config['source_image']   = $img;
-                    $config['new_image']      = $img;
-                    $config['height']         = 400;
-                    $config['width']          = 620;
-                    $config['maintain_ratio'] = false;
-                    $this->image_lib->initialize($config);
-                    if ($this->image_lib->resize()) {
-                        /**  Resize thumb **/
-                        $config['image_library']  = 'gd2';
-                        $config['source_image']   = $img;
-                        $config['new_image']      = $img_thumb;
-                        $config['create_thumb']   = true;
-                        $config['maintain_ratio'] = true;
-                        $config['width']          = $thumb_width;
-                        $config['height']         = $thumb_height;
-                        $this->image_lib->initialize($config);
-                        $this->image_lib->resize();                        
-                    }
-
- $up_array = array(
-                'f_name'=>$result_arr['f_name'],
-                'l_name'=>$result_arr['l_name'],
-                'file_extension' => $extension
-                );
-    $this->admin->updateProfile($result_arr['id'],$up_array);
-
-                $success_message = 'profile update';
-                $http_response = 'http_response_ok';
-
-
-                 }
-          }
-       else{
-             $http_response = 'http_response_ok';
-             $error_message = 'File Type is not supported! Only GIF,JPG,PNG file can upoload';
-             }
-      }else{
- $up_array = array('f_name'=>$result_arr['f_name'],'l_name'=>$result_arr['l_name']);
-    $this->admin->updateProfile($result_arr['id'],$up_array);
-
-    $success_message = 'profile update';
-    $http_response = 'http_response_ok';
-  
-      }
-    
-    $result_arr['admin_user_id'] = $result_arr['id'];
-   $details_arr  = $this->admin->getAdminDetails($result_arr);
-   $admin_img = array();
-        if($details_arr['file_extension']!=''){
-         $admin_img['profile_image_url'] = base_url().'assets/resources/profile/'.$details_arr['id'].'.'.$details_arr['file_extension'];   
 
         }else{
-            $admin_img['profile_image_url'] = '';
+        $http_response = 'http_response_unauthorized';
+       }
 
-        }
-
-        $details_arr['profile_image_url'] = $admin_img;
-        $result_arr   = $details_arr;
-
-    
-
-  }else{
-    $http_response = 'http_response_unauthorized';
-  }
+    }        
+ //print_r($this->post());
+    json_response($req_arr, $http_response, $error_message, $success_message);
 }
-json_response($result_arr, $http_response, $error_message, $success_message);
-  }  
-
 
 
  
